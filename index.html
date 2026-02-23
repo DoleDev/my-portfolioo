@@ -82,14 +82,28 @@
             <a href="index.html" class="nav__logo" aria-label="Home">
                 <span class="logo-text">&lt;YN /&gt;</span>
             </a>
-            <ul class="nav__menu" id="nav-menu" role="menubar">
-                <li role="none"><a href="index.html" class="nav__link active" role="menuitem">Home</a></li>
-                <li role="none"><a href="about.html" class="nav__link" role="menuitem">About</a></li>
-                <li role="none"><a href="services.html" class="nav__link" role="menuitem">Services</a></li>
-                <li role="none"><a href="portfolio.html" class="nav__link" role="menuitem">Portfolio</a></li>
-                <li role="none"><a href="shop.html" class="nav__link" role="menuitem">Shop</a></li>
-                <li role="none"><a href="blog.html" class="nav__link" role="menuitem">Blog</a></li>
-                <li role="none"><a href="contact.html" class="nav__link" role="menuitem">Contact</a></li>
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link active-link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="about.html" class="nav__link">About</a>
+                </li>
+                <li class="nav__item">
+                    <a href="services.html" class="nav__link">Services</a>
+                </li>
+                <li class="nav__item">
+                    <a href="shop.html" class="nav__link">Shop</a>
+                </li>
+                <li class="nav__item">
+                    <a href="portfolio.html" class="nav__link">Portfolio</a>
+                </li>
+                <li class="nav__item">
+                    <a href="blog.html" class="nav__link">Blog</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contact.html" class="nav__link">Contact</a>
+                </li>
             </ul>
             <div class="nav__actions">
                 <button class="nav__action-btn search-trigger" aria-label="Search site (Ctrl+K)" title="Search (Ctrl+K)">
@@ -600,5 +614,20 @@
       }
     </script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- EMERGENCY NAVIGATION FIX -->
+    <script>
+    // Force navigation to work immediately
+    document.querySelectorAll('.nav__link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href && href !== '#' && href.indexOf('#') !== 0) {
+            e.stopPropagation();
+            window.location.href = href;
+            return false;
+        }
+    }, true); // Capture phase to intercept before other handlers
+    });
+    </script>
+</body>
 </body>
 </html>

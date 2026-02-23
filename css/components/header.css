@@ -287,3 +287,47 @@
         }
     }
 }
+
+/* ==========================================
+   NAVIGATION CLICK FIX - Emergency Override
+   ========================================== */
+
+/* Ensure nav links are always clickable */
+.nav__link,
+.nav__menu a,
+.nav__item a {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 1000 !important;
+}
+
+/* Ensure the menu container doesn't block */
+.nav__menu {
+    pointer-events: auto !important;
+}
+
+/* Remove any invisible overlays that might block clicks */
+.nav__menu::before,
+.nav__menu::after {
+    pointer-events: none !important;
+}
+
+/* Ensure list items don't interfere */
+.nav__item {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 1001 !important;
+}
+
+/* Mobile menu specific fixes */
+@media (max-width: 768px) {
+    .nav__menu {
+        pointer-events: auto !important;
+        z-index: 999 !important;
+    }
+
+    .nav__menu.active {
+        pointer-events: auto !important;
+    }
+}
