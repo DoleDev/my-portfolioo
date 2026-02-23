@@ -48,3 +48,39 @@ A modern, high-performance developer portfolio built with **vanilla HTML, CSS, a
 
 
 ## 📁 Project Structure
+
+├── index.html # Home page
+├── about.html # About page
+├── services.html # Services page
+├── portfolio.html # Portfolio page
+├── shop.html # Shop page
+├── blog.html # Blog listing
+├── blog-post.html # Blog post template
+├── contact.html # Contact page
+├── 404.html # Custom 404
+├── offline.html # Offline fallback
+├── sw.js # Service worker
+├── manifest.json # PWA manifest
+├── netlify.toml # Netlify configuration
+├── robots.txt # SEO crawler rules
+├── sitemap.xml # SEO sitemap
+├── admin/ # Decap CMS
+│ ├── index.html
+│ └── config.yml
+├── blog/posts/ # Markdown blog posts
+├── data/ # JSON content data
+│ ├── projects.json
+│ ├── services.json
+│ ├── testimonials.json
+│ ├── products.json
+│ └── settings.json
+├── css/
+│ ├── style.css # Global styles + variables
+│ └── components/ # Component stylesheets (14 files)
+├── js/
+│ ├── main.js # Core functionality
+│ └── components/ # Component scripts (12 files)
+└── images/
+├── icons/ # PWA & favicon icons
+└── uploads/ # CMS media uploads
+
