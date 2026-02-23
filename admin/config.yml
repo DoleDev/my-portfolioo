@@ -1,16 +1,17 @@
+---
 backend:
   name: git-gateway
   branch: main
 media_folder: images/uploads
 public_folder: /images/uploads
 publish_mode: editorial_workflow
-site_url: 'https://your-site-name.netlify.app'
-display_url: 'https://your-site-name.netlify.app'
-logo_url: 'https://your-site-name.netlify.app/images/icons/favicon.ico'
+site_url: https://your-site-name.netlify.app
+display_url: https://your-site-name.netlify.app
+logo_url: https://your-site-name.netlify.app/images/icons/favicon.ico
 slug:
   encoding: ascii
   clean_accents: true
-  sanitize_replacement: '-'
+  sanitize_replacement: "-"
 collections:
   - name: blog
     label: Blog Posts
@@ -21,7 +22,7 @@ collections:
     delete: true
     extension: md
     format: frontmatter
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     sortable_fields:
       fields:
         - date
@@ -29,7 +30,7 @@ collections:
       default:
         field: date
         direction: Descending
-    summary: '{{title}} — {{date | date(''YYYY-MM-DD'')}}'
+    summary: "{{title}} — {{date | date('YYYY-MM-DD')}}"
     fields:
       - label: Title
         name: title
@@ -39,7 +40,7 @@ collections:
         name: date
         widget: datetime
         date_format: YYYY-MM-DD
-        time_format: 'HH:mm'
+        time_format: HH:mm
         format: YYYY-MM-DD
         hint: When this post was/will be published
       - label: Description
@@ -47,13 +48,13 @@ collections:
         widget: text
         hint: A short summary (displayed on blog listing cards and in SEO)
         pattern:
-          - '.{10,300}'
+          - .{10,300}
           - Must be between 10 and 300 characters
       - label: Featured Image
         name: thumbnail
         widget: image
         required: false
-        hint: 'Header image for the blog post (recommended: 1200x630px)'
+        hint: "Header image for the blog post (recommended: 1200x630px)"
         media_library:
           config:
             max_file_size: 2048000
@@ -77,7 +78,7 @@ collections:
       - label: Tags
         name: tags
         widget: list
-        hint: 'Comma-separated tags (e.g., python, automation, bots)'
+        hint: Comma-separated tags (e.g., python, automation, bots)
         field:
           label: Tag
           name: tag
@@ -86,7 +87,7 @@ collections:
         name: reading_time
         widget: string
         default: 5 min
-        hint: 'Estimated reading time (e.g., ''8 min'')'
+        hint: Estimated reading time (e.g., '8 min')
       - label: Featured Post
         name: featured
         widget: boolean
@@ -100,8 +101,7 @@ collections:
       - label: Body
         name: body
         widget: markdown
-        hint: >-
-          The full article content. Supports headings, bold, links, code blocks,
+        hint: The full article content. Supports headings, bold, links, code blocks,
           images, and more.
   - name: projects
     label: Portfolio Projects
@@ -113,12 +113,12 @@ collections:
         name: projects
         widget: list
         label_singular: Project
-        summary: '{{fields.title}} — {{fields.category}}'
+        summary: "{{fields.title}} — {{fields.category}}"
         fields:
           - label: ID
             name: id
             widget: string
-            hint: 'Unique identifier (lowercase, dashes). Example: telegram-food-bot'
+            hint: "Unique identifier (lowercase, dashes). Example: telegram-food-bot"
           - label: Title
             name: title
             widget: string
@@ -158,7 +158,7 @@ collections:
               label: Technology
               name: tech
               widget: string
-            hint: 'e.g., Python, JavaScript, React, Node.js'
+            hint: e.g., Python, JavaScript, React, Node.js
           - label: Live URL
             name: liveUrl
             widget: string
@@ -192,12 +192,12 @@ collections:
         name: services
         widget: list
         label_singular: Service
-        summary: '{{fields.title}}'
+        summary: "{{fields.title}}"
         fields:
           - label: ID
             name: id
             widget: string
-            hint: 'Unique identifier (e.g., web-development)'
+            hint: Unique identifier (e.g., web-development)
           - label: Title
             name: title
             widget: string
@@ -208,7 +208,7 @@ collections:
           - label: Icon Emoji
             name: icon
             widget: string
-            hint: "Emoji used as icon (e.g., \U0001F4BB, \U0001F916, \U0001F4DD)"
+            hint: Emoji used as icon (e.g., 💻, 🤖, 📝)
           - label: Features
             name: features
             widget: list
@@ -221,16 +221,16 @@ collections:
             name: pricing
             widget: list
             label_singular: Tier
-            summary: '{{fields.name}} — ${{fields.price}}'
+            summary: "{{fields.name}} — ${{fields.price}}"
             fields:
               - label: Tier Name
                 name: name
                 widget: string
-                hint: 'e.g., Basic, Standard, Premium'
+                hint: e.g., Basic, Standard, Premium
               - label: Price
                 name: price
                 widget: string
-                hint: 'e.g., 499, 999, Custom'
+                hint: e.g., 499, 999, Custom
               - label: Description
                 name: description
                 widget: string
@@ -251,7 +251,7 @@ collections:
         name: testimonials
         widget: list
         label_singular: Testimonial
-        summary: '{{fields.name}} — {{fields.company}}'
+        summary: "{{fields.name}} — {{fields.company}}"
         fields:
           - label: ID
             name: id
@@ -262,7 +262,7 @@ collections:
           - label: Role / Title
             name: role
             widget: string
-            hint: 'e.g., CEO, Project Manager'
+            hint: e.g., CEO, Project Manager
           - label: Company
             name: company
             widget: string
@@ -278,7 +278,7 @@ collections:
           - label: Initials
             name: initials
             widget: string
-            hint: 'Fallback initials if no avatar (e.g., JD)'
+            hint: Fallback initials if no avatar (e.g., JD)
           - label: Rating
             name: rating
             widget: number
@@ -301,12 +301,12 @@ collections:
         name: products
         widget: list
         label_singular: Product
-        summary: '{{fields.title}} — ${{fields.price}}'
+        summary: "{{fields.title}} — ${{fields.price}}"
         fields:
           - label: ID
             name: id
             widget: string
-            hint: 'Unique identifier (e.g., portfolio-template-pro)'
+            hint: Unique identifier (e.g., portfolio-template-pro)
           - label: Title
             name: title
             widget: string
@@ -355,7 +355,7 @@ collections:
             name: downloadUrl
             widget: string
             required: false
-            hint: 'Link to download or purchase page (Gumroad, Lemon Squeezy, etc.)'
+            hint: Link to download or purchase page (Gumroad, Lemon Squeezy, etc.)
           - label: Featured
             name: featured
             widget: boolean
