@@ -25,12 +25,8 @@ collections:
     format: frontmatter
     slug: "{{slug}}"
     sortable_fields:
-      fields:
-        - date
-        - title
-      default:
-        field: date
-        direction: Descending
+      - date
+      - title
     summary: "{{title}} — {{date | date('YYYY-MM-DD')}}"
     fields:
       - label: Title
@@ -43,7 +39,7 @@ collections:
         date_format: YYYY-MM-DD
         time_format: "HH:mm"
         format: YYYY-MM-DD
-        hint: When this post was/will be published
+        hint: When this post was or will be published
       - label: Description
         name: description
         widget: text
