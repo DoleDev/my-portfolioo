@@ -100,6 +100,7 @@
     /* ---- Z-Index Scale ---- */
     --z-dropdown:   100;
     --z-header:     500;
+    --z-sticky:     1000;
     --z-overlay:    900;
     --z-modal:      1000;
     --z-preloader:  9999;

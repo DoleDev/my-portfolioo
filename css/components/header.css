@@ -23,7 +23,7 @@
     left: 0;
     width: 100%;
     height: var(--header-height);
-    z-index: var(--z-sticky);
+    z-index: 1000;
     transition: all var(--transition-base);
 }
 
