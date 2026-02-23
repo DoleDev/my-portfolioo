@@ -1,0 +1,59 @@
+/* css/components/forms.css */
+/* ============================================= */
+/*  Shared Form Styles                           */
+/*  Used across: contact.html, footer forms,     */
+/*  and any future forms on the site             */
+/* ============================================= */
+
+/*
+ * This file contains utility classes used by forms
+ * and other components across the entire site.
+ * It's included on pages that have forms.
+ */
+
+/* Visually Hidden — hides content visually but keeps
+   it accessible to screen readers. Used for the
+   honeypot spam-prevention field in Netlify Forms */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Section Label — the small pill-shaped label above
+   section titles (e.g., "Send a Message", "FAQ") */
+.section-label {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    background: rgba(var(--color-accent-rgb, 100, 255, 218), 0.1);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-mono);
+}
+
+/* Full-width button variant */
+.btn--full {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Button icon animation — icon slides right on hover */
+.btn__icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover .btn__icon {
+    transform: translateX(4px);
+}

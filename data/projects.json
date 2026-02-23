@@ -1,0 +1,82 @@
+{
+    "projects": [
+        {
+            "id": "telegram-food-bot",
+            "title": "Telegram Food Ordering Bot",
+            "description": "Automated food ordering system with inline menus, cart management, and payment integration via Telegram.",
+            "longDescription": "A comprehensive Telegram bot that allows restaurant customers to browse menus, customize orders, manage their cart, and pay — all within Telegram. Features include inline keyboard menus, real-time order tracking, admin dashboard for restaurant owners, and integration with multiple payment providers.",
+            "image": "",
+            "category": "telegram",
+            "technologies": ["Python", "python-telegram-bot", "PostgreSQL", "Redis", "Docker"],
+            "liveUrl": "https://t.me/your_food_bot",
+            "githubUrl": "https://github.com/yourusername/food-bot",
+            "featured": true,
+            "order": 1
+        },
+        {
+            "id": "portfolio-website",
+            "title": "Developer Portfolio Website",
+            "description": "Modern, responsive portfolio website with dark/light mode, animations, blog, and integrated shop.",
+            "longDescription": "A fully custom portfolio website built with vanilla HTML, CSS, and JavaScript. Features include CSS custom property theming, intersection observer animations, command palette, blog with reading progress, e-commerce cart, and Decap CMS integration. Scores 95+ on Lighthouse.",
+            "image": "",
+            "category": "web",
+            "technologies": ["HTML5", "CSS3", "JavaScript", "Decap CMS", "Netlify"],
+            "liveUrl": "https://yoursite.netlify.app",
+            "githubUrl": "https://github.com/yourusername/portfolio",
+            "featured": true,
+            "order": 2
+        },
+        {
+            "id": "saas-analytics-dashboard",
+            "title": "SaaS Analytics Dashboard",
+            "description": "Real-time analytics dashboard for tracking user engagement, revenue metrics, and conversion funnels.",
+            "longDescription": "A web-based analytics dashboard that visualizes key business metrics in real-time. Built with a Node.js backend and vanilla frontend with Chart.js for data visualization. Features include customizable date ranges, exportable reports, team collaboration, and Slack notifications.",
+            "image": "",
+            "category": "saas",
+            "technologies": ["Node.js", "Express", "Chart.js", "MongoDB", "WebSocket"],
+            "liveUrl": "",
+            "githubUrl": "https://github.com/yourusername/analytics-dash",
+            "featured": true,
+            "order": 3
+        },
+        {
+            "id": "telegram-mini-app-store",
+            "title": "Telegram Mini App — Online Store",
+            "description": "Full e-commerce experience inside Telegram with product catalog, cart, and Telegram Payments.",
+            "longDescription": "A Telegram Mini App that provides a complete shopping experience within Telegram. Users can browse products, filter by category, add items to cart, and checkout using Telegram's built-in payment system. The admin panel allows store owners to manage inventory and track orders.",
+            "image": "",
+            "category": "telegram",
+            "technologies": ["JavaScript", "Telegram Web App API", "Python", "FastAPI", "SQLite"],
+            "liveUrl": "https://t.me/your_store_bot",
+            "githubUrl": "",
+            "featured": false,
+            "order": 4
+        },
+        {
+            "id": "academic-writing-platform",
+            "title": "Academic Writing Platform",
+            "description": "Web platform connecting students with academic writers, featuring order management and secure file delivery.",
+            "longDescription": "A full-stack web application that streamlines the academic writing process. Students can place orders, upload requirements, communicate with writers, and receive completed work. Features include real-time chat, plagiarism checking integration, deadline tracking, and payment escrow.",
+            "image": "",
+            "category": "web",
+            "technologies": ["HTML5", "CSS3", "JavaScript", "Python", "Django", "PostgreSQL"],
+            "liveUrl": "",
+            "githubUrl": "",
+            "featured": false,
+            "order": 5
+        },
+        {
+            "id": "content-automation-tool",
+            "title": "Content Automation CLI Tool",
+            "description": "Command-line tool that automates content publishing across multiple platforms simultaneously.",
+            "longDescription": "A Python CLI tool that takes a single piece of content (blog post, article, or social media update) and publishes it across multiple platforms — Medium, Dev.to, Hashnode, Twitter, LinkedIn, and Telegram channels. Supports scheduling, content formatting adaptation per platform, and analytics tracking.",
+            "image": "",
+            "category": "saas",
+            "technologies": ["Python", "Click", "REST APIs", "SQLite"],
+            "liveUrl": "",
+            "githubUrl": "https://github.com/yourusername/content-automator",
+            "featured": false,
+            "order": 6
+        }
+    ]
+}

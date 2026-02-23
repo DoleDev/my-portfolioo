@@ -1,0 +1,114 @@
+/* File: css/components/cookie-consent.css */
+/*
+ * ============================================
+ *   COOKIE CONSENT BANNER
+ * ============================================
+ *
+ * GDPR-style cookie consent banner.
+ * Slides up from the bottom on first visit.
+ * Remembers choice in localStorage.
+ */
+
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-overlay);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    padding: var(--space-lg) 0;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-consent.visible {
+    transform: translateY(0);
+}
+
+.cookie-consent__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+    .cookie-consent__inner {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-md);
+        padding: 0 var(--space-md);
+    }
+}
+
+.cookie-consent__icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+}
+
+.cookie-consent__text {
+    flex: 1;
+}
+
+.cookie-consent__title {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 2px;
+}
+
+.cookie-consent__description {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.cookie-consent__description a {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.cookie-consent__actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-shrink: 0;
+}
+
+.cookie-consent__btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.cookie-consent__btn--accept {
+    background: var(--accent-primary);
+    color: var(--text-on-accent);
+    border-color: var(--accent-primary);
+}
+
+.cookie-consent__btn--accept:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.cookie-consent__btn--decline {
+    background: transparent;
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+}
+
+.cookie-consent__btn--decline:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-heading);
+}

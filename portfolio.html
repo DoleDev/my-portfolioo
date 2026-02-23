@@ -1,0 +1,487 @@
+<!-- File: portfolio.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Your Name | Projects & Work</title>
+    <meta name="description" content="Browse my portfolio of web development, mobile apps, Telegram bots, SaaS tools, and academic writing projects.">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Portfolio — Your Name">
+    <meta property="og:description" content="Browse my portfolio of projects and work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.netlify.app/portfolio.html">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/animations.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/preloader.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/about.css">
+    <link rel="stylesheet" href="css/components/portfolio.css">
+    <link rel="stylesheet" href="css/components/modal.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/command-palette.css">
+    <link rel="stylesheet" href="css/components/cookie-consent.css">
+    <link rel="stylesheet" href="css/components/notification-bar.css">
+    <link rel="stylesheet" href="css/components/skeleton.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-live="polite"><div class="preloader__content"><div class="preloader__spinner"><span class="preloader__logo">&lt;YN/&gt;</span></div><div class="preloader__text">Loading<span class="preloader__dots"><span class="preloader__dot"></span><span class="preloader__dot"></span><span class="preloader__dot"></span></span></div></div></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo" aria-label="Home"><span class="logo-text">&lt;YN /&gt;</span></a>
+            <ul class="nav__menu" id="nav-menu" role="menubar">
+                <li role="none"><a href="index.html" class="nav__link" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" class="nav__link" role="menuitem">About</a></li>
+                <li role="none"><a href="services.html" class="nav__link" role="menuitem">Services</a></li>
+                <li role="none"><a href="portfolio.html" class="nav__link active" role="menuitem">Portfolio</a></li>
+                <li role="none"><a href="shop.html" class="nav__link" role="menuitem">Shop</a></li>
+                <li role="none"><a href="blog.html" class="nav__link" role="menuitem">Blog</a></li>
+                <li role="none"><a href="contact.html" class="nav__link" role="menuitem">Contact</a></li>
+            </ul>
+            <div class="nav__actions">
+                <button class="nav__action-btn search-trigger" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                <button class="nav__action-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme"><svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg><svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>
+                <a href="shop.html" class="nav__action-btn cart-btn" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span class="cart-count" id="cart-count" style="display:none;">0</span></a>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="page-header__bg" aria-hidden="true"><div class="page-header__blob page-header__blob--1"></div><div class="page-header__blob page-header__blob--2"></div><div class="page-header__grid"></div></div>
+            <div class="container">
+                <div class="page-header__content" data-animation="fade-in-up">
+                    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="breadcrumbs__separator">/</span><span class="breadcrumbs__current" aria-current="page">Portfolio</span></nav>
+                    <h1 class="page-header__title">My Portfolio</h1>
+                    <p class="page-header__subtitle">A showcase of my best work across development, automation, and academic writing.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="section" id="projects" aria-labelledby="projects-heading">
+            <div class="container">
+                <h2 class="sr-only" id="projects-heading">Projects</h2>
+
+                <!-- Filter Bar -->
+                <div class="filter-bar" data-animation="fade-in-up" role="toolbar" aria-label="Filter projects by category">
+                    <button class="filter-btn active" data-filter="all" data-filter-group="portfolio">All</button>
+                    <button class="filter-btn" data-filter="web" data-filter-group="portfolio">Web</button>
+                    <button class="filter-btn" data-filter="app" data-filter-group="portfolio">Apps</button>
+                    <button class="filter-btn" data-filter="bot" data-filter-group="portfolio">Bots</button>
+                    <button class="filter-btn" data-filter="saas" data-filter-group="portfolio">SaaS</button>
+                    <button class="filter-btn" data-filter="academic" data-filter-group="portfolio">Academic</button>
+                </div>
+
+                <!-- Project Counter -->
+                <div class="project-counter" data-filter-group="portfolio" data-animation="fade-in-up">
+                    Showing <span class="project-counter__number project-counter__current">8</span> of <span class="project-counter__number project-counter__total">8</span> projects
+                </div>
+
+                <!--
+                    🔧 CUSTOMIZE: Replace ALL project cards with YOUR real projects
+                    For each project:
+                    - Change the data-category to match its type
+                    - Update the image/placeholder
+                    - Write your own title, description, and tech tags
+                    - Link the "View Details" button to its modal
+                    - Add real demo/code links
+                -->
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" data-filter-group="portfolio">
+
+                    <!-- Project 1: Web -->
+                    <article class="project-card" data-category="web" data-animation="fade-in-up">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">🌐</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-1" aria-label="View project details">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </button>
+                                <a href="#" class="project-card__overlay-btn" aria-label="Live demo" target="_blank" rel="noopener noreferrer">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                </a>
+                                <a href="#" class="project-card__overlay-btn" aria-label="Source code" target="_blank" rel="noopener noreferrer">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                            <span class="project-card__category">Web</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">E-Commerce Platform</h3>
+                            <p class="project-card__description">A full-featured online store with product management, cart system, secure checkout, and admin dashboard.</p>
+                            <div class="project-card__tags">
+                                <span class="project-card__tag">HTML/CSS</span>
+                                <span class="project-card__tag">JavaScript</span>
+                                <span class="project-card__tag">Node.js</span>
+                                <span class="project-card__tag">Stripe</span>
+                            </div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-1">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                <a href="#" class="project-card__link project-card__link--external" target="_blank" rel="noopener noreferrer">Live Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Bot -->
+                    <article class="project-card" data-category="bot" data-animation="fade-in-up" data-delay="100">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">🤖</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-2" aria-label="View details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                                <a href="#" class="project-card__overlay-btn" aria-label="Live demo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            </div>
+                            <span class="project-card__category">Bot</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">Customer Service Bot</h3>
+                            <p class="project-card__description">An intelligent Telegram bot that handles customer inquiries, processes orders, and provides 24/7 automated support.</p>
+                            <div class="project-card__tags"><span class="project-card__tag">Python</span><span class="project-card__tag">Telegram API</span><span class="project-card__tag">PostgreSQL</span></div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-2">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                <a href="#" class="project-card__link project-card__link--external">Try Bot <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: SaaS -->
+                    <article class="project-card" data-category="saas" data-animation="fade-in-up" data-delay="200">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">⚡</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-3" aria-label="View details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                                <a href="#" class="project-card__overlay-btn" aria-label="Live demo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            </div>
+                            <span class="project-card__category">SaaS</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">Project Management Tool</h3>
+                            <p class="project-card__description">A SaaS project management platform with team collaboration, task tracking, time logging, and reporting dashboards.</p>
+                            <div class="project-card__tags"><span class="project-card__tag">React</span><span class="project-card__tag">Node.js</span><span class="project-card__tag">MongoDB</span><span class="project-card__tag">Stripe</span></div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-3">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                <a href="#" class="project-card__link project-card__link--external">Live Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: App -->
+                    <article class="project-card" data-category="app" data-animation="fade-in-up">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">📱</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-1" aria-label="View details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                            </div>
+                            <span class="project-card__category">App</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">Fitness Tracker App</h3>
+                            <p class="project-card__description">A cross-platform mobile app for tracking workouts, nutrition, and progress with social features and gamification.</p>
+                            <div class="project-card__tags"><span class="project-card__tag">React Native</span><span class="project-card__tag">Firebase</span><span class="project-card__tag">Redux</span></div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-1">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Web -->
+                    <article class="project-card" data-category="web" data-animation="fade-in-up" data-delay="100">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">🎨</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-1" aria-label="View details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                            </div>
+                            <span class="project-card__category">Web</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">Restaurant Website</h3>
+                            <p class="project-card__description">A beautiful restaurant website with online menu, reservation system, photo gallery, and Google Maps integration.</p>
+                            <div class="project-card__tags"><span class="project-card__tag">HTML/CSS</span><span class="project-card__tag">JavaScript</span><span class="project-card__tag">Google API</span></div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-1">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 6: Academic -->
+                    <article class="project-card" data-category="academic" data-animation="fade-in-up" data-delay="200">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">📚</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-1" aria-label="View details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                            </div>
+                            <span class="project-card__category">Academic</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">PhD Dissertation — AI Ethics</h3>
+                            <p class="project-card__description">A comprehensive 300-page dissertation on ethical implications of AI in healthcare decision-making systems.</p>
+                            <div class="project-card__tags"><span class="project-card__tag">Research</span><span class="project-card__tag">APA Format</span><span class="project-card__tag">200+ Sources</span></div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-1">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 7: Bot -->
+                    <article class="project-card" data-category="bot" data-animation="fade-in-up">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">🛒</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-2" aria-label="View details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                            </div>
+                            <span class="project-card__category">Bot</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">E-Commerce Telegram Shop</h3>
+                            <p class="project-card__description">A Telegram Mini App that functions as a complete storefront with product catalog, cart, and payment processing.</p>
+                            <div class="project-card__tags"><span class="project-card__tag">Telegram Mini App</span><span class="project-card__tag">Node.js</span><span class="project-card__tag">Payments</span></div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-2">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 8: Web -->
+                    <article class="project-card" data-category="web" data-animation="fade-in-up" data-delay="100">
+                        <div class="project-card__image-wrapper">
+                            <div class="project-card__image-placeholder">💼</div>
+                            <div class="project-card__overlay">
+                                <button class="project-card__overlay-btn" data-modal-trigger="modal-project-1" aria-label="View details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                            </div>
+                            <span class="project-card__category">Web</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">Corporate Dashboard</h3>
+                            <p class="project-card__description">An internal dashboard for a logistics company with real-time tracking, analytics, and automated reporting.</p>
+                            <div class="project-card__tags"><span class="project-card__tag">Vue.js</span><span class="project-card__tag">D3.js</span><span class="project-card__tag">WebSocket</span></div>
+                            <div class="project-card__footer">
+                                <button class="project-card__link" data-modal-trigger="modal-project-1">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div><!-- end projects-grid -->
+
+                <!-- Empty State -->
+                <div class="portfolio-empty" data-filter-group="portfolio" aria-live="polite">
+                    <span class="portfolio-empty__icon">🔍</span>
+                    <h3 class="portfolio-empty__title">No projects found</h3>
+                    <p class="portfolio-empty__text">No projects match this filter. Try selecting a different category.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-section" id="cta" aria-labelledby="cta-heading-portfolio">
+            <div class="cta-section__bg" aria-hidden="true"><div class="cta-section__blob cta-section__blob--1"></div><div class="cta-section__blob cta-section__blob--2"></div></div>
+            <div class="container">
+                <div class="cta-section__content" data-animation="scale-up">
+                    <h2 class="cta-section__title" id="cta-heading-portfolio">Like What You See?<br><span class="text-gradient">Let's Create Something Together.</span></h2>
+                    <p class="cta-section__text">I'm always excited to take on new challenges. Let's discuss your project idea.</p>
+                    <div class="cta-section__actions">
+                        <a href="contact.html" class="btn btn--primary btn--lg"><span>Start a Project</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                        <a href="services.html" class="btn btn--outline btn--lg"><span>View Services</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         PROJECT DETAIL MODALS
+         ============================================ -->
+
+    <!-- Modal: Project 1 (Web — E-Commerce) -->
+    <div class="modal-overlay" id="modal-project-1" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-p1-title">
+            <div class="modal__header">
+                <div class="modal__title-wrapper">
+                    <div class="modal__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                    <div>
+                        <h3 class="modal__title" id="modal-p1-title">E-Commerce Platform</h3>
+                        <p class="modal__subtitle">Full-Stack Web Development</p>
+                    </div>
+                </div>
+                <button class="modal__close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="modal__body">
+                <div class="modal__section">
+                    <h4 class="modal__section-title">📋 Project Overview</h4>
+                    <p class="modal__text">A complete e-commerce solution built for a fashion retailer. The platform includes product catalog management, user accounts, shopping cart, secure Stripe checkout, order tracking, and a comprehensive admin dashboard for inventory and sales management.</p>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">🖼️ Screenshots</h4>
+                    <div class="modal__gallery">
+                        <div class="modal__gallery-item">Homepage</div>
+                        <div class="modal__gallery-item">Product Page</div>
+                        <div class="modal__gallery-item">Cart & Checkout</div>
+                        <div class="modal__gallery-item">Admin Dashboard</div>
+                    </div>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">🎯 The Challenge</h4>
+                    <p class="modal__text">The client needed a fast, mobile-first shopping experience that could handle 10,000+ products while maintaining sub-2-second page loads. The existing Shopify setup was too slow and inflexible for their needs.</p>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">💡 The Solution</h4>
+                    <p class="modal__text">I built a custom headless commerce solution with a static frontend for blazing-fast page loads, connected to a Node.js backend API. Product data is cached and served via CDN. The result: 95+ Lighthouse score and 40% increase in conversion rate.</p>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">🛠️ Tech Stack</h4>
+                    <div class="modal__tech-stack">
+                        <span class="modal__tech-tag">HTML5/CSS3</span>
+                        <span class="modal__tech-tag">JavaScript</span>
+                        <span class="modal__tech-tag">Node.js</span>
+                        <span class="modal__tech-tag">Express</span>
+                        <span class="modal__tech-tag">MongoDB</span>
+                        <span class="modal__tech-tag">Stripe API</span>
+                        <span class="modal__tech-tag">Cloudflare CDN</span>
+                        <span class="modal__tech-tag">Netlify</span>
+                    </div>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">✨ Key Results</h4>
+                    <div class="modal__features">
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 95+ Lighthouse score</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 40% conversion increase</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 1.2s average page load</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 10,000+ products indexed</div>
+                    </div>
+                </div>
+                <div class="modal__links">
+                    <a href="#" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                    <a href="#" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Project 2 (Bot — Customer Service) -->
+    <div class="modal-overlay" id="modal-project-2" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-p2-title">
+            <div class="modal__header">
+                <div class="modal__title-wrapper">
+                    <div class="modal__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+                    <div><h3 class="modal__title" id="modal-p2-title">Customer Service Bot</h3><p class="modal__subtitle">Telegram Bot Development</p></div>
+                </div>
+                <button class="modal__close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="modal__body">
+                <div class="modal__section">
+                    <h4 class="modal__section-title">📋 Project Overview</h4>
+                    <p class="modal__text">An intelligent Telegram bot for a SaaS company that handles customer inquiries, processes subscription changes, provides technical documentation, and escalates complex issues to human agents. Reduced support ticket volume by 60%.</p>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">🛠️ Tech Stack</h4>
+                    <div class="modal__tech-stack">
+                        <span class="modal__tech-tag">Python</span>
+                        <span class="modal__tech-tag">python-telegram-bot</span>
+                        <span class="modal__tech-tag">PostgreSQL</span>
+                        <span class="modal__tech-tag">Redis</span>
+                        <span class="modal__tech-tag">Docker</span>
+                    </div>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">✨ Key Results</h4>
+                    <div class="modal__features">
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 60% fewer support tickets</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 24/7 automated support</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 5,000+ daily users</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 95% satisfaction rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Project 3 (SaaS) -->
+    <div class="modal-overlay" id="modal-project-3" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-p3-title">
+            <div class="modal__header">
+                <div class="modal__title-wrapper">
+                    <div class="modal__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+                    <div><h3 class="modal__title" id="modal-p3-title">Project Management Tool</h3><p class="modal__subtitle">Full-Stack SaaS Application</p></div>
+                </div>
+                <button class="modal__close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="modal__body">
+                <div class="modal__section">
+                    <h4 class="modal__section-title">📋 Project Overview</h4>
+                    <p class="modal__text">A comprehensive project management SaaS platform built for creative agencies. Features include Kanban boards, time tracking, team collaboration, client portals, invoice generation, and detailed analytics. Grew from 0 to 500 paying users in 6 months.</p>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">🛠️ Tech Stack</h4>
+                    <div class="modal__tech-stack">
+                        <span class="modal__tech-tag">React</span>
+                        <span class="modal__tech-tag">Node.js</span>
+                        <span class="modal__tech-tag">MongoDB</span>
+                        <span class="modal__tech-tag">Socket.io</span>
+                        <span class="modal__tech-tag">Stripe</span>
+                        <span class="modal__tech-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="modal__section">
+                    <h4 class="modal__section-title">✨ Key Results</h4>
+                    <div class="modal__features">
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 500+ paying users</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> 99.9% uptime</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> Real-time collaboration</div>
+                        <div class="modal__feature"><span class="modal__feature-check">✓</span> $15K MRR achieved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer__newsletter"><div class="container"><div class="footer__newsletter-inner"><div class="footer__newsletter-text"><h3>📬 Stay in the Loop</h3><p>Get updates on new projects and articles.</p></div><form class="footer__newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="newsletter"><p class="sr-only"><label>Don't fill: <input name="bot-field"></label></p><input type="email" name="email" class="footer__newsletter-input" placeholder="Enter your email" required aria-label="Email"><button type="submit" class="btn btn--primary">Subscribe</button></form></div></div></div>
+        <div class="footer__main"><div class="container"><div class="footer__grid"><div class="footer__column"><a href="index.html" class="footer__brand-logo">&lt;YN /&gt;</a><p class="footer__brand-description">Building digital solutions and crafting academic excellence.</p><div class="footer__social-links"><a href="#" class="footer__social-link" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a><a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="#" class="footer__social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#" class="footer__social-link" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a></div></div><div class="footer__column"><h4 class="footer__column-title">Quick Links</h4><nav class="footer__links"><a href="index.html" class="footer__link">Home</a><a href="about.html" class="footer__link">About</a><a href="services.html" class="footer__link">Services</a><a href="portfolio.html" class="footer__link">Portfolio</a><a href="blog.html" class="footer__link">Blog</a><a href="contact.html" class="footer__link">Contact</a></nav></div><div class="footer__column"><h4 class="footer__column-title">Services</h4><nav class="footer__links"><a href="services.html#web-development" class="footer__link">Web Development</a><a href="services.html#telegram-bots" class="footer__link">Telegram Bots</a><a href="services.html#saas-tools" class="footer__link">SaaS Tools</a><a href="services.html#academic-writing" class="footer__link">Academic Writing</a><a href="shop.html" class="footer__link">Digital Products</a></nav></div><div class="footer__column"><h4 class="footer__column-title">Get In Touch</h4><div class="footer__contact-item"><div class="footer__contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div class="footer__contact-text"><a href="mailto:your.email@example.com">your.email@example.com</a></div></div><div class="footer__contact-item"><div class="footer__contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><div class="footer__contact-text">Available Worldwide</div></div></div></div></div></div>
+        <div class="footer__bottom"><div class="container"><div class="footer__bottom-inner"><p class="footer__copyright">&copy; 2025 <a href="index.html">Your Name</a>. All rights reserved.</p><div class="footer__legal-links"><a href="#" class="footer__legal-link">Privacy</a><a href="#" class="footer__legal-link">Terms</a></div></div></div></div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg class="back-to-top__progress-ring" width="46" height="46" viewBox="0 0 46 46"><circle class="back-to-top__progress-bg" cx="23" cy="23" r="20" fill="none" stroke-width="2"/><circle class="back-to-top__progress" cx="23" cy="23" r="20" fill="none" stroke-width="2" stroke-dasharray="125.66" stroke-dashoffset="125.66"/></svg>
+        <svg class="back-to-top__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/components/preloader.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components/modal.js"></script>
+    <script src="js/components/filter.js"></script>
+    <script src="js/components/back-to-top.js"></script>
+    <script src="js/components/scroll-animations.js"></script>
+    <script src="js/components/content-loader.js"></script>
+    <script src="js/components/sw-register.js"></script>
+</body>
+</html>

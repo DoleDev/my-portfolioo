@@ -1,0 +1,275 @@
+<!-- File: 404.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found</title>
+    <meta name="description" content="Oops! The page you're looking for doesn't exist.">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/animations.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/skeleton.css">
+    <style>
+        /* 404 page specific styles — kept inline since it's only used here */
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2xl) var(--space-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-page__bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .error-page__blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.06;
+        }
+
+        .error-page__blob--1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-primary);
+            top: -150px;
+            right: -100px;
+        }
+
+        .error-page__blob--2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-secondary);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .error-page__content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        /* Terminal-style error */
+        .error-terminal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            text-align: left;
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+        }
+
+        .error-terminal__bar {
+            display: flex;
+            gap: 6px;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .error-terminal__dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .error-terminal__dot--red { background: #ff5f57; }
+        .error-terminal__dot--yellow { background: #febc2e; }
+        .error-terminal__dot--green { background: #28c840; }
+
+        .error-terminal__line {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xs);
+            line-height: 1.8;
+        }
+
+        .error-terminal__prompt {
+            color: var(--accent-primary);
+        }
+
+        .error-terminal__error {
+            color: #ef4444;
+        }
+
+        .error-terminal__cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--accent-primary);
+            margin-left: 4px;
+            animation: blink-cursor 1s step-end infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Big 404 number */
+        .error-code {
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 900;
+            font-family: var(--font-mono);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: var(--space-md);
+            user-select: none;
+        }
+
+        .error-title {
+            font-size: var(--fs-xl);
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: var(--space-sm);
+        }
+
+        .error-description {
+            font-size: var(--fs-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.7;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-2xl);
+        }
+
+        /* Quick links */
+        .error-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            justify-content: center;
+        }
+
+        .error-links__item {
+            padding: 0.4rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: var(--fs-xs);
+            font-family: var(--font-mono);
+            transition: all var(--transition-fast);
+        }
+
+        .error-links__item:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Minimal header for 404 -->
+    <header class="header" id="header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo"><span class="logo-text">&lt;YN /&gt;</span></a>
+            <div class="nav__actions">
+                <button class="nav__action-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="error-page">
+            <div class="error-page__bg" aria-hidden="true">
+                <div class="error-page__blob error-page__blob--1"></div>
+                <div class="error-page__blob error-page__blob--2"></div>
+            </div>
+
+            <div class="error-page__content">
+                <!-- Terminal Error -->
+                <div class="error-terminal" data-animation="fade-in-up">
+                    <div class="error-terminal__bar">
+                        <span class="error-terminal__dot error-terminal__dot--red"></span>
+                        <span class="error-terminal__dot error-terminal__dot--yellow"></span>
+                        <span class="error-terminal__dot error-terminal__dot--green"></span>
+                    </div>
+                    <div class="error-terminal__line">
+                        <span class="error-terminal__prompt">$ </span>navigate --to requested-page
+                    </div>
+                    <div class="error-terminal__line">
+                        <span class="error-terminal__error">Error 404:</span> Page not found in directory
+                    </div>
+                    <div class="error-terminal__line">
+                        <span class="error-terminal__prompt">$ </span>suggest --alternatives<span class="error-terminal__cursor"></span>
+                    </div>
+                </div>
+
+                <!-- Big 404 -->
+                <div class="error-code" data-animation="scale-up">404</div>
+
+                <h1 class="error-title">Page Not Found</h1>
+                <p class="error-description">
+                    The page you're looking for might have been removed, had its name changed,
+                    or is temporarily unavailable. Let's get you back on track.
+                </p>
+
+                <div class="error-actions">
+                    <a href="index.html" class="btn btn--primary btn--lg">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span>Back to Home</span>
+                    </a>
+                    <a href="contact.html" class="btn btn--outline btn--lg">
+                        <span>Contact Support</span>
+                    </a>
+                </div>
+
+                <p style="font-size: var(--fs-xs); color: var(--text-secondary); margin-bottom: var(--space-md); font-family: var(--font-mono);">
+                    Or try one of these pages:
+                </p>
+
+                <div class="error-links">
+                    <a href="about.html" class="error-links__item">About</a>
+                    <a href="services.html" class="error-links__item">Services</a>
+                    <a href="portfolio.html" class="error-links__item">Portfolio</a>
+                    <a href="shop.html" class="error-links__item">Shop</a>
+                    <a href="blog.html" class="error-links__item">Blog</a>
+                    <a href="contact.html" class="error-links__item">Contact</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/components/content-loader.js"></script>
+    <script src="js/components/sw-register.js"></script>
+</body>
+</html>

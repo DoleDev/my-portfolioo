@@ -1,0 +1,282 @@
+/* File: css/components/blog-enhancements.css */
+/*
+ * ============================================
+ *    BLOG ENHANCEMENTS
+ * ============================================
+ *
+ * Supplements blog.css with:
+ * 1. Category filter pill buttons
+ * 2. Mobile ToC toggle (collapsible)
+ * 3. Blog card search transition animations
+ * 4. Blog post tags
+ * 5. Callout / tip boxes
+ * 6. Related posts section title
+ */
+
+
+/* ==========================================
+   1. CATEGORY FILTER PILLS
+   ========================================== */
+.blog-filters {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2xl);
+}
+
+.blog-filter {
+    padding: 0.4rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.blog-filter:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.blog-filter.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--text-on-accent);
+}
+
+
+/* ==========================================
+   2. MOBILE TOC TOGGLE
+   ==========================================
+   On desktop (>1024px): ToC is visible in sidebar, toggle hidden.
+   On mobile (≤1024px):  ToC is a collapsible card, toggle visible.
+
+   This OVERRIDES the `display: none` rule from blog.css
+   that hides the ToC on mobile. Instead, we show it
+   as a collapsible section.
+   ========================================== */
+
+/* Override the blog.css rule that hides ToC on mobile */
+@media (max-width: 1024px) {
+    .toc {
+        display: block !important;  /* override display:none from blog.css */
+        position: relative;
+        top: auto;
+        max-height: none;
+        margin-bottom: var(--space-xl);
+    }
+
+    /* The ToC list is hidden by default on mobile */
+    .toc .toc__list {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 0;
+        margin-top: 0;
+    }
+
+    /* When open, expand the list */
+    .toc.toc--open .toc__list {
+        max-height: 600px;
+        opacity: 1;
+        margin-top: var(--space-md);
+    }
+}
+
+/* Toggle button — hidden on desktop, visible on mobile */
+.toc__toggle {
+    display: none; /* hidden on desktop */
+}
+
+@media (max-width: 1024px) {
+    .toc__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-heading);
+        font-size: var(--fs-sm);
+        font-weight: 700;
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .toc__toggle-icon {
+        width: 18px;
+        height: 18px;
+        color: var(--accent-primary);
+        transition: transform var(--transition-base);
+        flex-shrink: 0;
+    }
+
+    .toc.toc--open .toc__toggle-icon {
+        transform: rotate(180deg);
+    }
+
+    /* On mobile, move ToC above the article (order) */
+    .post-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-layout > aside {
+        order: -1; /* ToC appears above article on mobile */
+    }
+}
+
+/* Hide the static .toc__title on mobile (toggle button replaces it) */
+@media (max-width: 1024px) {
+    .toc__title {
+        display: none;
+    }
+}
+
+
+/* ==========================================
+   3. BLOG CARD SEARCH ANIMATIONS
+   ========================================== */
+.blog-grid [data-searchable] {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+
+/* ==========================================
+   4. BLOG POST TAGS (in article)
+   ========================================== */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-xl) 0;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.post-tag {
+    padding: 3px 10px;
+    background: rgba(100, 255, 218, 0.06);
+    border: 1px solid rgba(100, 255, 218, 0.12);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-family: var(--font-mono);
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.post-tag:hover {
+    background: rgba(100, 255, 218, 0.12);
+}
+
+[data-theme="light"] .post-tag {
+    background: rgba(0, 102, 204, 0.04);
+    border-color: rgba(0, 102, 204, 0.1);
+}
+
+[data-theme="light"] .post-tag:hover {
+    background: rgba(0, 102, 204, 0.08);
+}
+
+
+/* ==========================================
+   5. CALLOUT / TIP BOX
+   ========================================== */
+.post-callout {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: rgba(100, 255, 218, 0.04);
+    border: 1px solid rgba(100, 255, 218, 0.12);
+    border-radius: var(--radius-lg);
+    margin: var(--space-xl) 0;
+}
+
+[data-theme="light"] .post-callout {
+    background: rgba(0, 102, 204, 0.03);
+    border-color: rgba(0, 102, 204, 0.1);
+}
+
+.post-callout__icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    line-height: 1.6;
+}
+
+.post-callout__text {
+    font-size: var(--fs-sm);
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+.post-callout__text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Callout variants */
+.post-callout--warning {
+    background: rgba(245, 158, 11, 0.06);
+    border-color: rgba(245, 158, 11, 0.15);
+}
+
+.post-callout--danger {
+    background: rgba(239, 68, 68, 0.06);
+    border-color: rgba(239, 68, 68, 0.15);
+}
+
+
+/* ==========================================
+   6. RELATED POSTS GRID (standalone)
+   ========================================== */
+.related-posts__heading {
+    font-size: var(--fs-2xl);
+    margin-bottom: var(--space-xl);
+}
+
+
+/* ==========================================
+   7. TABLE IN ARTICLE
+   ========================================== */
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-xl) 0;
+    font-size: var(--fs-sm);
+}
+
+.post-content th,
+.post-content td {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.post-content th {
+    background: var(--bg-tertiary);
+    font-weight: 700;
+    color: var(--text-heading);
+}
+
+.post-content td {
+    color: var(--text-primary);
+}
+
+/* Responsive table wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: var(--space-xl) 0;
+}
+
+.table-wrapper table {
+    margin: 0;
+}

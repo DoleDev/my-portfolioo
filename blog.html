@@ -1,0 +1,415 @@
+<!-- File: blog.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🔧 CUSTOMIZE: Replace "Your Name" with your actual name -->
+    <title>Blog — Your Name</title>
+    <meta name="description" content="Articles about web development, Telegram bots, automation, and technology. Tips, tutorials, and insights from a full-stack developer.">
+    <meta name="author" content="Your Name">
+
+    <meta property="og:title" content="Blog — Your Name">
+    <meta property="og:description" content="Articles about web development, Telegram bots, and technology.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0a192f">
+
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/animations.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/preloader.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/about.css">
+    <link rel="stylesheet" href="css/components/blog.css">
+    <link rel="stylesheet" href="css/components/blog-enhancements.css">
+    <link rel="stylesheet" href="css/components/shop.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/command-palette.css">
+    <link rel="stylesheet" href="css/components/cookie-consent.css">
+    <link rel="stylesheet" href="css/components/notification-bar.css">
+    <link rel="stylesheet" href="css/components/skeleton.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-live="polite"><div class="preloader__content"><div class="preloader__spinner"><span class="preloader__logo">&lt;YN/&gt;</span></div><div class="preloader__text">Loading<span class="preloader__dots"><span class="preloader__dot"></span><span class="preloader__dot"></span><span class="preloader__dot"></span></span></div></div></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header"><nav class="nav container" aria-label="Main navigation"><a href="index.html" class="nav__logo"><span class="logo-text">&lt;YN /&gt;</span></a><ul class="nav__menu" id="nav-menu" role="menubar"><li role="none"><a href="index.html" class="nav__link" role="menuitem">Home</a></li><li role="none"><a href="about.html" class="nav__link" role="menuitem">About</a></li><li role="none"><a href="services.html" class="nav__link" role="menuitem">Services</a></li><li role="none"><a href="portfolio.html" class="nav__link" role="menuitem">Portfolio</a></li><li role="none"><a href="shop.html" class="nav__link" role="menuitem">Shop</a></li><li role="none"><a href="blog.html" class="nav__link active" role="menuitem">Blog</a></li><li role="none"><a href="contact.html" class="nav__link" role="menuitem">Contact</a></li></ul><div class="nav__actions"><button class="nav__action-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme"><svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg><svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><button class="nav__action-btn cart-btn" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span class="cart-count" id="cart-count" style="display:none;">0</span></button><button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button></div></nav></header>
+
+    <main id="main-content">
+
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="page-header__bg" aria-hidden="true">
+                <div class="page-header__blob page-header__blob--1"></div>
+                <div class="page-header__blob page-header__blob--2"></div>
+                <div class="page-header__grid"></div>
+            </div>
+            <div class="container">
+                <div class="page-header__content" data-animation="fade-in-up">
+                    <nav class="breadcrumbs" aria-label="Breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span class="breadcrumbs__separator">/</span>
+                        <span class="breadcrumbs__current" aria-current="page">Blog</span>
+                    </nav>
+                    <h1 class="page-header__title">Blog & <span class="text-gradient">Articles</span></h1>
+                    <p class="page-header__description">Thoughts on web development, Telegram bots, automation, and building things that matter.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Search + Filters -->
+        <section class="section" style="padding-top: var(--space-xl); padding-bottom: 0;">
+            <div class="container">
+
+                <!-- Search Bar -->
+                <div class="blog-search" data-animation="fade-in-up">
+                    <svg class="blog-search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input
+                        type="text"
+                        class="blog-search__input"
+                        placeholder="Search articles..."
+                        aria-label="Search blog posts"
+                    >
+                    <button class="blog-search__clear" aria-label="Clear search">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+
+                <!-- Results count (shown when searching) -->
+                <div class="blog-search__results" aria-live="polite">
+                    Showing <span class="blog-search__results-count">0</span> results
+                </div>
+
+                <!-- Category Filter Pills -->
+                <!--
+                    🔧 CUSTOMIZE: Change these categories to match YOUR blog topics
+                -->
+                <div class="blog-filters" data-animation="fade-in-up" data-delay="100">
+                    <button class="blog-filter active" data-category="all">All Posts</button>
+                    <button class="blog-filter" data-category="development">Development</button>
+                    <button class="blog-filter" data-category="telegram">Telegram</button>
+                    <button class="blog-filter" data-category="tools">Tools</button>
+                    <button class="blog-filter" data-category="business">Business</button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Blog Posts Grid -->
+        <section class="section" id="blog-posts">
+            <div class="container">
+                <!--
+                    🔧 CUSTOMIZE: Replace ALL blog cards with YOUR real posts.
+
+                    IMPORTANT attributes on each card:
+                    - data-searchable="title description category tags"
+                      (all lowercase — blog-search.js searches this string)
+                    - data-category="category-name"
+                      (matches the filter button data-category values)
+                -->
+                <div class="blog-grid">
+
+                    <!-- ★ FEATURED POST (first, spans full width) -->
+                    <article
+                        class="card card--blog blog-post-card--featured"
+                        data-searchable="building performant websites without frameworks development vanilla html css javascript web performance"
+                        data-category="development"
+                        data-animation="fade-in-up"
+                    >
+                        <div class="card__image-wrapper">
+                            <div class="card__image-placeholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <span class="card__category-badge">Development</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__meta">
+                                <time datetime="2025-01-15">January 15, 2025</time>
+                                <span class="card__meta-divider">·</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h2 class="card__title">
+                                <a href="blog-post.html">Building Performant Websites Without Frameworks</a>
+                            </h2>
+                            <p class="card__description">Why vanilla HTML, CSS, and JavaScript might be all you need for most projects. A case for simplicity in modern web development.</p>
+                            <div class="blog-post-card__tags">
+                                <span class="blog-post-card__tag">html</span>
+                                <span class="blog-post-card__tag">css</span>
+                                <span class="blog-post-card__tag">javascript</span>
+                                <span class="blog-post-card__tag">performance</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article
+                        class="card card--blog"
+                        data-searchable="creating your first telegram mini app telegram bots mini apps web technologies twa"
+                        data-category="telegram"
+                        data-animation="fade-in-up"
+                        data-delay="100"
+                    >
+                        <div class="card__image-wrapper">
+                            <div class="card__image-placeholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <span class="card__category-badge">Telegram</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__meta">
+                                <time datetime="2025-01-10">January 10, 2025</time>
+                                <span class="card__meta-divider">·</span>
+                                <span>8 min</span>
+                            </div>
+                            <h3 class="card__title">
+                                <a href="blog-post.html">Creating Your First Telegram Mini App</a>
+                            </h3>
+                            <p class="card__description">A complete guide to building Telegram Mini Apps with web technologies.</p>
+                            <div class="blog-post-card__tags">
+                                <span class="blog-post-card__tag">telegram</span>
+                                <span class="blog-post-card__tag">mini-apps</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article
+                        class="card card--blog"
+                        data-searchable="best free tools for web developers in 2025 tools productivity vs code figma"
+                        data-category="tools"
+                        data-animation="fade-in-up"
+                        data-delay="200"
+                    >
+                        <div class="card__image-wrapper">
+                            <div class="card__image-placeholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <span class="card__category-badge">Tools</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__meta">
+                                <time datetime="2024-12-28">December 28, 2024</time>
+                                <span class="card__meta-divider">·</span>
+                                <span>7 min</span>
+                            </div>
+                            <h3 class="card__title">
+                                <a href="blog-post.html">Best Free Tools for Web Developers in 2025</a>
+                            </h3>
+                            <p class="card__description">My curated list of essential free tools every web developer should know about.</p>
+                            <div class="blog-post-card__tags">
+                                <span class="blog-post-card__tag">tools</span>
+                                <span class="blog-post-card__tag">productivity</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 -->
+                    <article
+                        class="card card--blog"
+                        data-searchable="mastering css variables for dynamic theming development css custom properties dark mode light mode"
+                        data-category="development"
+                        data-animation="fade-in-up"
+                        data-delay="100"
+                    >
+                        <div class="card__image-wrapper">
+                            <div class="card__image-placeholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <span class="card__category-badge">Development</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__meta">
+                                <time datetime="2024-12-20">December 20, 2024</time>
+                                <span class="card__meta-divider">·</span>
+                                <span>10 min</span>
+                            </div>
+                            <h3 class="card__title">
+                                <a href="blog-post.html">Mastering CSS Variables for Dynamic Theming</a>
+                            </h3>
+                            <p class="card__description">Build a complete dark/light mode system using CSS custom properties and zero JavaScript.</p>
+                            <div class="blog-post-card__tags">
+                                <span class="blog-post-card__tag">css</span>
+                                <span class="blog-post-card__tag">theming</span>
+                                <span class="blog-post-card__tag">dark-mode</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 5 -->
+                    <article
+                        class="card card--blog"
+                        data-searchable="how i built a saas product as a solo developer business saas indie hacker startup"
+                        data-category="business"
+                        data-animation="fade-in-up"
+                        data-delay="200"
+                    >
+                        <div class="card__image-wrapper">
+                            <div class="card__image-placeholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <span class="card__category-badge">Business</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__meta">
+                                <time datetime="2024-12-10">December 10, 2024</time>
+                                <span class="card__meta-divider">·</span>
+                                <span>12 min</span>
+                            </div>
+                            <h3 class="card__title">
+                                <a href="blog-post.html">How I Built a SaaS Product as a Solo Developer</a>
+                            </h3>
+                            <p class="card__description">Lessons learned from building, launching, and growing a software product alone.</p>
+                            <div class="blog-post-card__tags">
+                                <span class="blog-post-card__tag">saas</span>
+                                <span class="blog-post-card__tag">business</span>
+                                <span class="blog-post-card__tag">indie</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- No Results State -->
+                <div class="blog-no-results" aria-live="polite">
+                    <span class="blog-no-results__icon">🔍</span>
+                    <h3 class="blog-no-results__title">No articles found</h3>
+                    <p class="blog-no-results__text">Try a different search term or browse all categories.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Newsletter CTA -->
+        <section class="section cta-section">
+            <div class="cta-section__bg" aria-hidden="true">
+                <div class="cta-section__blob cta-section__blob--1"></div>
+                <div class="cta-section__blob cta-section__blob--2"></div>
+            </div>
+            <div class="container">
+                <div class="cta-section__content" data-animation="scale-up">
+                    <h2 class="cta-section__title">Want More <span class="text-gradient">Articles?</span></h2>
+                    <p class="cta-section__text">I write about web development, automation, and building profitable side projects. Follow along.</p>
+                    <div class="cta-section__actions">
+                        <a href="contact.html" class="btn btn--primary btn--lg"><span>Get In Touch</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart"><div class="cart-drawer__header"><h2 class="cart-drawer__title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Cart <span class="cart-drawer__count" id="cart-drawer-count">0</span></h2><button class="cart-drawer__close" aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div><div class="cart-drawer__items" id="cart-items"></div><div class="cart-drawer__footer" id="cart-footer"><div class="cart-drawer__subtotal"><span class="cart-drawer__subtotal-label">Subtotal</span><span class="cart-drawer__subtotal-value" id="cart-subtotal">$0.00</span></div><a href="#" class="btn btn--primary cart-drawer__checkout">Checkout</a><a href="shop.html" class="btn btn--ghost cart-drawer__continue">Continue Shopping</a></div></aside>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer"><div class="footer__main"><div class="container"><div class="footer__grid"><div class="footer__column"><a href="index.html" class="footer__brand-logo">&lt;YN /&gt;</a><p class="footer__brand-description">Building digital solutions and crafting academic excellence.</p></div><div class="footer__column"><h4 class="footer__column-title">Quick Links</h4><nav class="footer__links"><a href="index.html" class="footer__link">Home</a><a href="about.html" class="footer__link">About</a><a href="services.html" class="footer__link">Services</a><a href="portfolio.html" class="footer__link">Portfolio</a><a href="blog.html" class="footer__link">Blog</a><a href="contact.html" class="footer__link">Contact</a></nav></div><div class="footer__column"><h4 class="footer__column-title">Services</h4><nav class="footer__links"><a href="services.html#web-development" class="footer__link">Web Development</a><a href="services.html#telegram-bots" class="footer__link">Telegram Bots</a><a href="services.html#academic-writing" class="footer__link">Academic Writing</a></nav></div><div class="footer__column"><h4 class="footer__column-title">Get In Touch</h4><div class="footer__contact-item"><div class="footer__contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div class="footer__contact-text"><a href="mailto:your.email@example.com">your.email@example.com</a></div></div></div></div></div></div><div class="footer__bottom"><div class="container"><div class="footer__bottom-inner"><p class="footer__copyright">&copy; 2025 <a href="index.html">Your Name</a>. All rights reserved.</p></div></div></div></footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg class="back-to-top__progress-ring" width="46" height="46" viewBox="0 0 46 46"><circle class="back-to-top__progress-bg" cx="23" cy="23" r="20" fill="none" stroke-width="2"/><circle class="back-to-top__progress" cx="23" cy="23" r="20" fill="none" stroke-width="2" stroke-dasharray="125.66" stroke-dashoffset="125.66"/></svg><svg class="back-to-top__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+
+    <!-- Scripts -->
+    <script src="js/components/preloader.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components/blog-search.js"></script>
+    <script src="js/components/shop-cart.js"></script>
+    <script src="js/components/back-to-top.js"></script>
+    <script src="js/components/scroll-animations.js"></script>
+
+    <!--
+        Category filter logic.
+        Kept inline because it's small and only used on this page.
+        Works alongside blog-search.js — they don't conflict because:
+        - blog-search.js handles text search (input field)
+        - this handles category filtering (button clicks)
+        Both operate on the same cards but through different mechanisms.
+    -->
+    <script>
+    (function() {
+        'use strict';
+
+        const filterBtns = document.querySelectorAll('.blog-filter');
+        const cards = document.querySelectorAll('.blog-grid [data-category]');
+        const noResults = document.querySelector('.blog-no-results');
+        const grid = document.querySelector('.blog-grid');
+
+        if (filterBtns.length === 0 || cards.length === 0) return;
+
+        let activeCategory = 'all';
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                /* Update active button */
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                activeCategory = btn.getAttribute('data-category');
+
+                /* Clear search input when changing category */
+                const searchInput = document.querySelector('.blog-search__input');
+                if (searchInput) {
+                    searchInput.value = '';
+                    const clearBtn = document.querySelector('.blog-search__clear');
+                    if (clearBtn) clearBtn.classList.remove('visible');
+                    const resultsEl = document.querySelector('.blog-search__results');
+                    if (resultsEl) resultsEl.classList.remove('visible');
+                }
+
+                filterCards();
+            });
+        });
+
+        function filterCards() {
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const matches = activeCategory === 'all' || cardCategory === activeCategory;
+
+                if (matches) {
+                    card.style.display = '';
+                    card.style.opacity = '1';
+                    card.style.transform = '';
+                    visibleCount++;
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        if (card.style.opacity === '0') {
+                            card.style.display = 'none';
+                        }
+                    }, 200);
+                }
+            });
+
+            /* No results state */
+            if (noResults) {
+                noResults.classList.toggle('visible', visibleCount === 0);
+            }
+            if (grid) {
+                grid.style.display = visibleCount === 0 ? 'none' : '';
+            }
+        }
+    })();
+    </script>
+    <script src="js/components/content-loader.js"></script>
+    <script src="js/components/sw-register.js"></script>
+</body>
+</html>

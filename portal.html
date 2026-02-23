@@ -1,0 +1,471 @@
+<!-- File: portal.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal — Coming Soon</title>
+    <meta name="description" content="Our client portal is coming soon. Track projects, manage invoices, and communicate in one place.">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/animations.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/skeleton.css">
+    <style>
+        /* Coming Soon page specific styles */
+        .coming-soon {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--header-height) + 2rem) var(--space-lg) var(--space-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon__bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .coming-soon__blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.06;
+        }
+
+        .coming-soon__blob--1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-primary);
+            top: -100px;
+            left: -100px;
+        }
+
+        .coming-soon__blob--2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-secondary);
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .coming-soon__content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .coming-soon__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 0.35rem 1rem;
+            background: rgba(100, 255, 218, 0.06);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: var(--radius-full);
+            font-size: var(--fs-xs);
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+            margin-bottom: var(--space-xl);
+        }
+
+        [data-theme="light"] .coming-soon__badge {
+            background: rgba(0, 102, 204, 0.05);
+            border-color: rgba(0, 102, 204, 0.12);
+        }
+
+        .coming-soon__badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        .coming-soon__title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--text-heading);
+            margin-bottom: var(--space-md);
+            line-height: 1.1;
+        }
+
+        .coming-soon__description {
+            font-size: var(--fs-md);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.7;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        .countdown__item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md) var(--space-lg);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .countdown__number {
+            font-size: var(--fs-2xl);
+            font-weight: 800;
+            color: var(--text-heading);
+            font-family: var(--font-mono);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .countdown__label {
+            font-size: 0.65rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Progress bar */
+        .progress-section {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .progress-section__label {
+            display: flex;
+            justify-content: space-between;
+            font-size: var(--fs-xs);
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .progress-section__bar {
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .progress-section__fill {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: var(--radius-full);
+            transition: width 1.5s ease;
+        }
+
+        /* Email signup */
+        .notify-form {
+            display: flex;
+            gap: var(--space-sm);
+            max-width: 420px;
+            margin: 0 auto var(--space-2xl);
+        }
+
+        .notify-form__input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: var(--fs-sm);
+            font-family: var(--font-primary);
+        }
+
+        .notify-form__input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .notify-form__input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        @media (max-width: 480px) {
+            .notify-form {
+                flex-direction: column;
+            }
+        }
+
+        /* Feature preview cards */
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        @media (max-width: 640px) {
+            .features-preview {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-preview-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .feature-preview-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .feature-preview-card__icon {
+            font-size: 1.75rem;
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .feature-preview-card__title {
+            font-size: var(--fs-sm);
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: var(--space-xs);
+        }
+
+        .feature-preview-card__desc {
+            font-size: var(--fs-xs);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Back link */
+        .coming-soon__back {
+            margin-top: var(--space-2xl);
+        }
+
+        .coming-soon__back a {
+            color: var(--accent-primary);
+            font-size: var(--fs-sm);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            transition: opacity var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .coming-soon__back a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Minimal header -->
+    <header class="header" id="header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo"><span class="logo-text">&lt;YN /&gt;</span></a>
+            <ul class="nav__menu" id="nav-menu" role="menubar">
+                <li role="none"><a href="index.html" class="nav__link" role="menuitem">Home</a></li>
+                <li role="none"><a href="services.html" class="nav__link" role="menuitem">Services</a></li>
+                <li role="none"><a href="portfolio.html" class="nav__link" role="menuitem">Portfolio</a></li>
+                <li role="none"><a href="contact.html" class="nav__link" role="menuitem">Contact</a></li>
+            </ul>
+            <div class="nav__actions">
+                <button class="nav__action-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="coming-soon">
+            <div class="coming-soon__bg" aria-hidden="true">
+                <div class="coming-soon__blob coming-soon__blob--1"></div>
+                <div class="coming-soon__blob coming-soon__blob--2"></div>
+            </div>
+
+            <div class="coming-soon__content">
+                <div class="coming-soon__badge">
+                    <span class="coming-soon__badge-dot"></span>
+                    In Development
+                </div>
+
+                <h1 class="coming-soon__title">
+                    Client Portal<br>
+                    <span class="text-gradient">Coming Soon</span>
+                </h1>
+
+                <p class="coming-soon__description">
+                    A dedicated dashboard where you can track project progress, manage invoices,
+                    communicate with me, and access all your files in one place.
+                </p>
+
+                <!-- Countdown Timer -->
+                <!--
+                    🔧 CUSTOMIZE: The countdown target date is set in the
+                    JavaScript below. Change it to your actual launch date.
+                -->
+                <div class="countdown" id="countdown">
+                    <div class="countdown__item">
+                        <div class="countdown__number" id="countdown-days">00</div>
+                        <div class="countdown__label">Days</div>
+                    </div>
+                    <div class="countdown__item">
+                        <div class="countdown__number" id="countdown-hours">00</div>
+                        <div class="countdown__label">Hours</div>
+                    </div>
+                    <div class="countdown__item">
+                        <div class="countdown__number" id="countdown-minutes">00</div>
+                        <div class="countdown__label">Minutes</div>
+                    </div>
+                    <div class="countdown__item">
+                        <div class="countdown__number" id="countdown-seconds">00</div>
+                        <div class="countdown__label">Seconds</div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <!--
+                    🔧 CUSTOMIZE: Update the percentage to reflect actual progress
+                -->
+                <div class="progress-section">
+                    <div class="progress-section__label">
+                        <span>Development Progress</span>
+                        <span>68%</span>
+                    </div>
+                    <div class="progress-section__bar">
+                        <div class="progress-section__fill" style="width: 68%;"></div>
+                    </div>
+                </div>
+
+                <!-- Email Signup -->
+                <form class="notify-form" id="notify-form" name="portal-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="portal-notify">
+                    <p class="sr-only"><label>Don't fill: <input name="bot-field"></label></p>
+                    <input type="email" name="email" class="notify-form__input" placeholder="Enter your email for updates" required>
+                    <button type="submit" class="btn btn--primary">Notify Me</button>
+                </form>
+
+                <!-- Feature Preview Cards -->
+                <!--
+                    🔧 CUSTOMIZE: Update features to match your actual portal plans
+                -->
+                <div class="features-preview">
+                    <div class="feature-preview-card">
+                        <span class="feature-preview-card__icon">📊</span>
+                        <div class="feature-preview-card__title">Project Tracking</div>
+                        <div class="feature-preview-card__desc">Real-time progress updates and milestone tracking</div>
+                    </div>
+                    <div class="feature-preview-card">
+                        <span class="feature-preview-card__icon">💬</span>
+                        <div class="feature-preview-card__title">Direct Messaging</div>
+                        <div class="feature-preview-card__desc">Communicate and share feedback seamlessly</div>
+                    </div>
+                    <div class="feature-preview-card">
+                        <span class="feature-preview-card__icon">📁</span>
+                        <div class="feature-preview-card__title">File Management</div>
+                        <div class="feature-preview-card__desc">Access deliverables, invoices, and documents</div>
+                    </div>
+                </div>
+
+                <div class="coming-soon__back">
+                    <a href="index.html">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* Countdown Timer */
+        (function() {
+            /*
+             * 🔧 CUSTOMIZE: Set your portal launch date here
+             * Format: 'YYYY-MM-DDTHH:MM:SS'
+             */
+            const launchDate = new Date('2025-09-01T00:00:00').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const diff = launchDate - now;
+
+                if (diff <= 0) {
+                    document.getElementById('countdown-days').textContent = '00';
+                    document.getElementById('countdown-hours').textContent = '00';
+                    document.getElementById('countdown-minutes').textContent = '00';
+                    document.getElementById('countdown-seconds').textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
+
+        /* Notify form — simple success feedback */
+        const notifyForm = document.getElementById('notify-form');
+        if (notifyForm) {
+            notifyForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = this.querySelector('input[type="email"]');
+                const btn = this.querySelector('button');
+                const originalText = btn.textContent;
+
+                btn.textContent = '✓ Subscribed!';
+                btn.disabled = true;
+                input.value = '';
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 3000);
+            });
+        }
+    </script>
+    <script src="js/components/content-loader.js"></script>
+    <script src="js/components/sw-register.js"></script>
+</body>
+</html>

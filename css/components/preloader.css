@@ -1,0 +1,159 @@
+/* File: css/components/preloader.css */
+
+/*
+ * ============================================
+ *  PRELOADER / LOADING SCREEN
+ * ============================================
+ *
+ * Shows a full-screen loading animation while the page loads.
+ * Once everything is ready, it fades out to reveal the site.
+ *
+ * Why use a preloader?
+ * - Prevents users from seeing a half-rendered page
+ * - Creates a polished, app-like first impression
+ * - Gives fonts and critical CSS time to load
+ *
+ * The preloader has:
+ * - Full-screen dark overlay
+ * - Animated logo/initials
+ * - A spinning ring animation
+ * - Smooth fade-out when loading completes
+ */
+
+
+/* ==========================================
+   PRELOADER OVERLAY
+   ========================================== */
+
+.preloader {
+    position: fixed;
+    inset: 0;              /* Shorthand for top:0, right:0, bottom:0, left:0 */
+    z-index: var(--z-max);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* When loading is done, this class is added to fade it out */
+.preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   PRELOADER CONTENT
+   ========================================== */
+
+.preloader__content {
+    text-align: center;
+    position: relative;
+}
+
+/* Spinning ring around the logo */
+.preloader__spinner {
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--accent-primary);
+    border-radius: var(--radius-full);
+    animation: spin 1s linear infinite;
+    margin: 0 auto var(--space-lg);
+    position: relative;
+}
+
+/* Logo/initials inside the spinner */
+.preloader__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--accent-primary);
+    animation: preloaderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes preloaderPulse {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Loading text */
+.preloader__text {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Loading dots animation */
+.preloader__dots {
+    display: inline-flex;
+    gap: 4px;
+    margin-left: var(--space-xs);
+}
+
+.preloader__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: var(--radius-full);
+    background: var(--accent-primary);
+    animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.preloader__dot:nth-child(1) { animation-delay: 0s; }
+.preloader__dot:nth-child(2) { animation-delay: 0.2s; }
+.preloader__dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotBounce {
+    0%, 80%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* ==========================================
+   PREVENT SCROLLING WHILE LOADING
+   ========================================== */
+
+body.loading {
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader__spinner {
+        animation: none;
+        border-color: var(--accent-primary);
+    }
+
+    .preloader__logo {
+        animation: none;
+        opacity: 1;
+    }
+
+    .preloader__dot {
+        animation: none;
+        opacity: 1;
+    }
+
+    .preloader {
+        transition-duration: 0.01ms;
+    }
+}

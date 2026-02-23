@@ -1,0 +1,98 @@
+{
+    "products": [
+        {
+            "id": "developer-portfolio-pro",
+            "title": "Developer Portfolio Template — Pro",
+            "description": "The same premium portfolio template that powers this site. Dark/light mode, animations, blog, shop, CMS integration, and 95+ Lighthouse score. Just customize and deploy.",
+            "price": 49,
+            "originalPrice": 79,
+            "image": "",
+            "category": "template",
+            "features": [
+                "7 fully designed pages",
+                "Dark & light mode",
+                "Smooth CSS & JS animations",
+                "Blog with reading progress bar",
+                "Integrated shopping cart",
+                "Decap CMS ready",
+                "SEO & accessibility optimized",
+                "Mobile-first responsive",
+                "Free updates for 1 year",
+                "Detailed documentation"
+            ],
+            "downloadUrl": "#",
+            "featured": true,
+            "order": 1
+        },
+        {
+            "id": "telegram-bot-starter",
+            "title": "Telegram Bot Starter Kit",
+            "description": "Production-ready Python Telegram bot boilerplate with database, payments, admin panel, and Docker deployment. Save 40+ hours of setup time.",
+            "price": 39,
+            "originalPrice": 59,
+            "image": "",
+            "category": "bot",
+            "features": [
+                "Python 3.12+ compatible",
+                "Async architecture",
+                "PostgreSQL integration",
+                "Telegram Payments ready",
+                "Admin commands & dashboard",
+                "Docker & docker-compose setup",
+                "Environment variable config",
+                "Comprehensive documentation",
+                "Example handlers & commands",
+                "Webhook & polling modes"
+            ],
+            "downloadUrl": "#",
+            "featured": true,
+            "order": 2
+        },
+        {
+            "id": "mini-app-ecommerce-template",
+            "title": "Telegram Mini App — E-Commerce",
+            "description": "Complete Telegram Mini App template for online stores. Product catalog, cart, checkout flow, and order management — all inside Telegram.",
+            "price": 69,
+            "originalPrice": 99,
+            "image": "",
+            "category": "bot",
+            "features": [
+                "Full product catalog UI",
+                "Shopping cart with animations",
+                "Telegram Payments integration",
+                "Order tracking system",
+                "Admin bot for managing orders",
+                "Category & search filtering",
+                "Responsive Mini App design",
+                "Python FastAPI backend",
+                "SQLite database",
+                "Deployment guide included"
+            ],
+            "downloadUrl": "#",
+            "featured": true,
+            "order": 3
+        },
+        {
+            "id": "css-animation-pack",
+            "title": "CSS Animation Collection",
+            "description": "50+ production-ready CSS animations. Copy-paste into any project. Includes hover effects, page transitions, loading states, and scroll reveals.",
+            "price": 19,
+            "originalPrice": null,
+            "image": "",
+            "category": "plugin",
+            "features": [
+                "50+ unique animations",
+                "Pure CSS (no JavaScript needed)",
+                "Customizable via CSS variables",
+                "Performance optimized",
+                "Copy-paste ready snippets",
+                "Dark & light mode compatible",
+                "Demo page included",
+                "Commercial license"
+            ],
+            "downloadUrl": "#",
+            "featured": false,
+            "order": 4
+        }
+    ]
+}

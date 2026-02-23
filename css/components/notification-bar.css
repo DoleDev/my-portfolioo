@@ -1,0 +1,96 @@
+/* File: css/components/notification-bar.css */
+/*
+ * ============================================
+ *   NOTIFICATION / ANNOUNCEMENT BAR
+ * ============================================
+ *
+ * A thin bar at the very top of the page
+ * above the header. Used for promotions,
+ * announcements, or updates.
+ *
+ * Can be dismissed — stays dismissed via localStorage.
+ */
+
+.notification-bar {
+    width: 100%;
+    background: var(--accent-gradient);
+    color: var(--text-on-accent);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    z-index: calc(var(--z-header) + 1);
+    position: relative;
+    overflow: hidden;
+    max-height: 44px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.notification-bar.dismissed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.notification-bar__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.5rem var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.notification-bar__text {
+    text-align: center;
+    line-height: 1.4;
+}
+
+.notification-bar__link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 700;
+    transition: opacity var(--transition-fast);
+}
+
+.notification-bar__link:hover {
+    opacity: 0.85;
+}
+
+.notification-bar__close {
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: inherit;
+    width: 22px;
+    height: 22px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    padding: 0;
+}
+
+[data-theme="light"] .notification-bar__close {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.notification-bar__close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="light"] .notification-bar__close:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .notification-bar__inner {
+        padding: 0.5rem var(--space-xl) 0.5rem var(--space-md);
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,248 @@
+<!-- File: blog-post.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🔧 CUSTOMIZE: Update per blog post -->
+    <title>Building Performant Websites Without Frameworks — Your Name</title>
+    <meta name="description" content="Why vanilla HTML, CSS, and JavaScript might be all you need for most projects.">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Building Performant Websites Without Frameworks"><meta property="og:description" content="Why vanilla HTML, CSS, and JS might be all you need."><meta property="og:type" content="article">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components/animations.css"><link rel="stylesheet" href="css/components/buttons.css"><link rel="stylesheet" href="css/components/preloader.css"><link rel="stylesheet" href="css/components/header.css"><link rel="stylesheet" href="css/components/cards.css"><link rel="stylesheet" href="css/components/about.css"><link rel="stylesheet" href="css/components/blog.css"><link rel="stylesheet" href="css/components/shop.css"><link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/blog-enhancements.css">
+    <link rel="stylesheet" href="css/components/command-palette.css">
+    <link rel="stylesheet" href="css/components/cookie-consent.css">
+    <link rel="stylesheet" href="css/components/notification-bar.css">
+    <link rel="stylesheet" href="css/components/command-palette.css">
+    <link rel="stylesheet" href="css/components/cookie-consent.css">
+    <link rel="stylesheet" href="css/components/notification-bar.css">
+    <link rel="stylesheet" href="css/components/skeleton.css">
+</head>
+<body>
+    <div class="preloader" id="preloader" aria-live="polite"><div class="preloader__content"><div class="preloader__spinner"><span class="preloader__logo">&lt;YN/&gt;</span></div><div class="preloader__text">Loading<span class="preloader__dots"><span class="preloader__dot"></span><span class="preloader__dot"></span><span class="preloader__dot"></span></span></div></div></div>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="header" id="header"><nav class="nav container" aria-label="Main navigation"><a href="index.html" class="nav__logo"><span class="logo-text">&lt;YN /&gt;</span></a><ul class="nav__menu" id="nav-menu" role="menubar"><li role="none"><a href="index.html" class="nav__link" role="menuitem">Home</a></li><li role="none"><a href="about.html" class="nav__link" role="menuitem">About</a></li><li role="none"><a href="services.html" class="nav__link" role="menuitem">Services</a></li><li role="none"><a href="portfolio.html" class="nav__link" role="menuitem">Portfolio</a></li><li role="none"><a href="shop.html" class="nav__link" role="menuitem">Shop</a></li><li role="none"><a href="blog.html" class="nav__link active" role="menuitem">Blog</a></li><li role="none"><a href="contact.html" class="nav__link" role="menuitem">Contact</a></li></ul><div class="nav__actions"><button class="nav__action-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme"><svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg><svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><button class="nav__action-btn cart-btn" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span class="cart-count" id="cart-count" style="display:none;">0</span></button><button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button></div></nav></header>
+
+    <main id="main-content">
+        <!-- Post Header -->
+        <section class="page-header" style="padding-bottom: var(--space-xl);">
+            <div class="page-header__bg" aria-hidden="true"><div class="page-header__blob page-header__blob--1"></div><div class="page-header__blob page-header__blob--2"></div><div class="page-header__grid"></div></div>
+            <div class="container">
+                <div class="post-header" data-animation="fade-in-up">
+                    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="breadcrumbs__separator">/</span><a href="blog.html">Blog</a><span class="breadcrumbs__separator">/</span><span class="breadcrumbs__current" aria-current="page">Article</span></nav>
+                    <span class="post-header__category">Development</span>
+                    <!-- 🔧 CUSTOMIZE: Post title -->
+                    <h1 class="post-header__title">Building Performant Websites Without Frameworks</h1>
+                    <div class="post-header__meta">
+                        <span class="post-header__meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> <time datetime="2025-01-15">January 15, 2025</time></span>
+                        <span class="post-header__meta-divider">·</span>
+                        <span class="post-header__meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Your Name</span>
+                        <span class="post-header__meta-divider">·</span>
+                        <span class="post-header__meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 5 min read</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Image -->
+        <div class="container" data-animation="fade-in-up" data-delay="200">
+            <div class="post-featured-image">
+                <div class="post-featured-image__placeholder">📝</div>
+            </div>
+        </div>
+
+        <!-- Post Content + Sidebar -->
+        <section class="section" style="padding-top: var(--space-xl);">
+            <div class="container">
+                <div class="post-layout">
+                    <!-- Article Content -->
+                    <article class="post-content" data-animation="fade-in-up">
+
+                        <!-- 🔧 CUSTOMIZE: Write your actual blog post content here -->
+                        <h2 id="introduction">Introduction</h2>
+                        <p>In an era where React, Vue, Angular, and Next.js dominate the web development landscape, it's easy to forget that the web itself is built on three simple technologies: <strong>HTML, CSS, and JavaScript</strong>. These are the building blocks that every framework ultimately compiles down to.</p>
+
+                        <p>But here's a provocative question: <em>do you actually need a framework for your next project?</em> For many use cases — portfolios, landing pages, blogs, small business sites, documentation — the answer is a resounding <strong>no</strong>.</p>
+
+                        <blockquote>
+                            <p>"The best framework is the one you don't need." — Some wise developer, probably</p>
+                        </blockquote>
+
+                        <h2 id="why-vanilla">Why Go Vanilla?</h2>
+                        <p>There are compelling reasons to skip the framework entirely:</p>
+
+                        <ul>
+                            <li><strong>Performance</strong> — Zero framework overhead means faster page loads. No 50-100KB of JavaScript just to render a heading.</li>
+                            <li><strong>Simplicity</strong> — No build step, no node_modules folder with 500MB of dependencies, no webpack configuration.</li>
+                            <li><strong>Longevity</strong> — HTML, CSS, and JS never break. A site built in 2015 with vanilla technologies still works perfectly today.</li>
+                            <li><strong>Learning</strong> — Understanding the fundamentals makes you better at every framework.</li>
+                        </ul>
+
+                        <h2 id="when-to-use">When Vanilla Makes Sense</h2>
+                        <p>Vanilla web development is ideal when your project doesn't require complex state management, real-time data synchronization, or deeply nested component hierarchies. Here are perfect use cases:</p>
+
+                        <ol>
+                            <li>Personal portfolios and resume sites</li>
+                            <li>Landing pages and marketing sites</li>
+                            <li>Documentation sites</li>
+                            <li>Blogs (especially with static site generators)</li>
+                            <li>Small business websites</li>
+                            <li>Email templates</li>
+                        </ol>
+
+                        <h2 id="modern-css">Modern CSS Is Incredibly Powerful</h2>
+                        <p>CSS has evolved dramatically. With features like <code>CSS Grid</code>, <code>Flexbox</code>, <code>CSS Custom Properties</code>, <code>:has()</code>, container queries, and <code>@layer</code>, you can build complex, responsive layouts without any CSS-in-JS library.</p>
+
+                        <pre><code>/* Dark/light mode with just CSS variables */
+:root {
+  --bg: #0a192f;
+  --text: #ccd6f6;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #334155;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}</code></pre>
+
+                        <h2 id="vanilla-js">Vanilla JavaScript Is More Capable Than Ever</h2>
+                        <p>Modern JavaScript (ES6+) gives you everything you need. The Intersection Observer API handles scroll animations. The Fetch API handles HTTP requests. Template literals handle dynamic HTML. And the DOM API is fast enough for virtually any use case that isn't a real-time collaborative editor.</p>
+
+                        <h3 id="intersection-observer">Intersection Observer Example</h3>
+                        <p>Here's how we handle scroll animations without any library:</p>
+
+                        <pre><code>const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animated');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('[data-animation]')
+  .forEach(el => observer.observe(el));</code></pre>
+
+                        <h2 id="conclusion">Conclusion</h2>
+                        <p>Frameworks are tools, not requirements. For many projects, vanilla HTML, CSS, and JavaScript provide better performance, simpler maintenance, and a more enjoyable development experience. The site you're reading right now was built entirely without frameworks — and it's fast, accessible, and beautiful.</p>
+
+                        <p>Next time you start a project, ask yourself: <strong>"Do I really need a framework for this?"</strong> You might be surprised by the answer.</p>
+
+                        <!-- Share Buttons -->
+                        <div class="share-bar">
+                            <span class="share-bar__label">Share:</span>
+                            <div class="share-bar__buttons">
+                                <a href="https://twitter.com/intent/tweet?text=Building%20Performant%20Websites%20Without%20Frameworks&url=" class="share-btn" aria-label="Share on Twitter" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=" class="share-btn" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                                <button class="share-btn" aria-label="Copy link" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.classList.add('share-btn--copied');setTimeout(()=>this.classList.remove('share-btn--copied'),2000)})"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>
+                            </div>
+                        </div>
+
+                        <!-- Author Bio -->
+                        <div class="author-bio">
+                            <div class="author-bio__avatar">YN</div>
+                            <div>
+                                <!-- 🔧 CUSTOMIZE: Your name and bio -->
+                                <h4 class="author-bio__name">Your Name</h4>
+                                <p class="author-bio__role">Full-Stack Developer & Writer</p>
+                                <p class="author-bio__text">I build beautiful websites, powerful web apps, and intelligent Telegram bots. I also write about technology, development best practices, and academic research.</p>
+                            </div>
+                        </div>
+
+                        <!-- Post Navigation -->
+                        <nav class="post-nav" aria-label="Post navigation">
+                            <a href="blog-post.html" class="post-nav__item post-nav__item--prev">
+                                <span class="post-nav__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg> Previous</span>
+                                <span class="post-nav__title">Mastering CSS Variables for Dynamic Theming</span>
+                            </a>
+                            <a href="blog-post.html" class="post-nav__item post-nav__item--next">
+                                <span class="post-nav__label">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                                <span class="post-nav__title">Creating Your First Telegram Mini App</span>
+                            </a>
+                        </nav>
+
+                    </article>
+
+                    <!-- Table of Contents (sidebar) -->
+                    <aside class="toc" aria-label="Table of contents">
+                         <button class="toc__toggle" aria-expanded="false" aria-controls="toc-list">
+                             <span>Table of Contents</span>
+                             <svg class="toc__toggle-icon" fill="none" height="18" stroke="currentColor"
+                                  stroke-width="2" viewBox="0 0 24 24" width="18"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                         </button>
+                    <h3 class="toc__title">Contents</h3>
+                    <nav class="toc__list" id="toc-list">
+
+                            <a href="#introduction" class="toc__link">Introduction</a>
+                            <a href="#why-vanilla" class="toc__link">Why Go Vanilla?</a>
+                            <a href="#when-to-use" class="toc__link">When Vanilla Makes Sense</a>
+                            <a href="#modern-css" class="toc__link">Modern CSS Is Powerful</a>
+                            <a href="#vanilla-js" class="toc__link">Vanilla JavaScript</a>
+                            <a href="#intersection-observer" class="toc__link toc__link--h3">Intersection Observer</a>
+                            <a href="#conclusion" class="toc__link">Conclusion</a>
+                        </nav>
+                    </aside>
+                </div>
+
+                <!-- Related Posts -->
+                <div style="margin-top: var(--space-3xl);">
+                    <div class="section__header" data-animation="fade-in-up">
+                        <span class="section__label">Keep Reading</span>
+                        <h2 class="section__title" style="font-size: var(--fs-2xl);">Related Articles</h2>
+                    </div>
+                    <div class="cards-grid cards-grid--3">
+                        <article class="card card--blog" data-animation="fade-in-up" data-delay="100">
+                            <div class="card__image-wrapper"><div class="card__image-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><span class="card__category-badge">Development</span></div>
+                            <div class="card__body"><div class="card__meta"><time datetime="2024-12-20">Dec 20, 2024</time><span class="card__meta-divider">·</span><span>10 min</span></div><h3 class="card__title"><a href="blog-post.html">Mastering CSS Variables for Dynamic Theming</a></h3><p class="card__description">Build a complete dark/light mode system using CSS custom properties.</p></div>
+                        </article>
+                        <article class="card card--blog" data-animation="fade-in-up" data-delay="200">
+                            <div class="card__image-wrapper"><div class="card__image-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><span class="card__category-badge">Tools</span></div>
+                            <div class="card__body"><div class="card__meta"><time datetime="2024-12-28">Dec 28, 2024</time><span class="card__meta-divider">·</span><span>7 min</span></div><h3 class="card__title"><a href="blog-post.html">Best Free Tools for Web Developers in 2025</a></h3><p class="card__description">My curated list of essential free tools for every web developer.</p></div>
+                        </article>
+                        <article class="card card--blog" data-animation="fade-in-up" data-delay="300">
+                            <div class="card__image-wrapper"><div class="card__image-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><span class="card__category-badge">Telegram</span></div>
+                            <div class="card__body"><div class="card__meta"><time datetime="2025-01-10">Jan 10, 2025</time><span class="card__meta-divider">·</span><span>8 min</span></div><h3 class="card__title"><a href="blog-post.html">Creating Your First Telegram Mini App</a></h3><p class="card__description">A complete guide to building Telegram Mini Apps with web technologies.</p></div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart"><div class="cart-drawer__header"><h2 class="cart-drawer__title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Cart <span class="cart-drawer__count" id="cart-drawer-count">0</span></h2><button class="cart-drawer__close" aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div><div class="cart-drawer__items" id="cart-items"></div><div class="cart-drawer__footer" id="cart-footer"><div class="cart-drawer__subtotal"><span class="cart-drawer__subtotal-label">Subtotal</span><span class="cart-drawer__subtotal-value" id="cart-subtotal">$0.00</span></div><a href="#" class="btn btn--primary cart-drawer__checkout">Checkout</a><a href="shop.html" class="btn btn--ghost cart-drawer__continue">Continue Shopping</a></div></aside>
+
+    <!-- Footer (abbreviated) -->
+    <footer class="footer" id="footer"><div class="footer__main"><div class="container"><div class="footer__grid"><div class="footer__column"><a href="index.html" class="footer__brand-logo">&lt;YN /&gt;</a><p class="footer__brand-description">Building digital solutions and crafting academic excellence.</p></div><div class="footer__column"><h4 class="footer__column-title">Quick Links</h4><nav class="footer__links"><a href="index.html" class="footer__link">Home</a><a href="about.html" class="footer__link">About</a><a href="services.html" class="footer__link">Services</a><a href="portfolio.html" class="footer__link">Portfolio</a><a href="blog.html" class="footer__link">Blog</a><a href="contact.html" class="footer__link">Contact</a></nav></div><div class="footer__column"><h4 class="footer__column-title">Services</h4><nav class="footer__links"><a href="services.html#web-development" class="footer__link">Web Development</a><a href="services.html#telegram-bots" class="footer__link">Telegram Bots</a><a href="services.html#academic-writing" class="footer__link">Academic Writing</a></nav></div><div class="footer__column"><h4 class="footer__column-title">Get In Touch</h4><div class="footer__contact-item"><div class="footer__contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div class="footer__contact-text"><a href="mailto:your.email@example.com">your.email@example.com</a></div></div></div></div></div></div><div class="footer__bottom"><div class="container"><div class="footer__bottom-inner"><p class="footer__copyright">&copy; 2025 <a href="index.html">Your Name</a>. All rights reserved.</p></div></div></div></footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg class="back-to-top__progress-ring" width="46" height="46" viewBox="0 0 46 46"><circle class="back-to-top__progress-bg" cx="23" cy="23" r="20" fill="none" stroke-width="2"/><circle class="back-to-top__progress" cx="23" cy="23" r="20" fill="none" stroke-width="2" stroke-dasharray="125.66" stroke-dashoffset="125.66"/></svg><svg class="back-to-top__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+
+    <script src="js/components/preloader.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components/reading-progress.js"></script>
+    <script src="js/components/toc-tracker.js"></script>
+    <script src="js/components/shop-cart.js"></script>
+    <script src="js/components/back-to-top.js"></script>
+    <script src="js/components/scroll-animations.js"></script>
+    <script src="js/components/content-loader.js"></script>
+    <script src="js/components/sw-register.js"></script>
+</body>
+</html>

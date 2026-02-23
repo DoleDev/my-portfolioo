@@ -1,0 +1,106 @@
+{
+    "services": [
+        {
+            "id": "web-development",
+            "title": "Web Development",
+            "description": "Custom websites and web applications built with modern technologies. From landing pages to full-stack platforms — clean code, fast performance, SEO-optimized.",
+            "icon": "💻",
+            "features": [
+                "Responsive design (mobile-first)",
+                "Performance optimized (95+ Lighthouse)",
+                "SEO best practices built-in",
+                "Dark/light mode theming",
+                "Cross-browser compatibility",
+                "Accessibility (WCAG 2.1 AA)",
+                "Analytics integration",
+                "CMS setup for easy content management"
+            ],
+            "pricing": [
+                {
+                    "name": "Landing Page",
+                    "price": "299",
+                    "description": "Single-page website with contact form and responsive design"
+                },
+                {
+                    "name": "Multi-Page Site",
+                    "price": "799",
+                    "description": "Up to 7 pages with blog, portfolio, and CMS integration"
+                },
+                {
+                    "name": "Custom Web App",
+                    "price": "Custom",
+                    "description": "Full-stack web application with database, auth, and API"
+                }
+            ],
+            "order": 1
+        },
+        {
+            "id": "telegram-bots",
+            "title": "Telegram Bots & Mini Apps",
+            "description": "Custom Telegram bots and Mini Apps that automate your business. Customer support bots, ordering systems, payment processing, and interactive Mini Apps.",
+            "icon": "🤖",
+            "features": [
+                "Custom bot development",
+                "Telegram Mini Apps (Web Apps)",
+                "Inline keyboards & menus",
+                "Payment integration (Telegram Payments, Stripe)",
+                "Database integration",
+                "Admin dashboard",
+                "Webhook deployment (24/7 uptime)",
+                "Maintenance & updates"
+            ],
+            "pricing": [
+                {
+                    "name": "Simple Bot",
+                    "price": "199",
+                    "description": "Basic bot with commands, auto-replies, and notifications"
+                },
+                {
+                    "name": "Business Bot",
+                    "price": "599",
+                    "description": "Advanced bot with database, payments, and admin panel"
+                },
+                {
+                    "name": "Mini App + Bot",
+                    "price": "999",
+                    "description": "Full Telegram Mini App with custom UI and bot backend"
+                }
+            ],
+            "order": 2
+        },
+        {
+            "id": "academic-writing",
+            "title": "Academic Writing",
+            "description": "Professional academic writing assistance for students and researchers. Essays, research papers, dissertations, and thesis work with guaranteed quality.",
+            "icon": "📝",
+            "features": [
+                "Research papers & essays",
+                "Dissertation & thesis assistance",
+                "Literature reviews",
+                "APA, MLA, Chicago formatting",
+                "Plagiarism-free guarantee",
+                "Unlimited revisions",
+                "Direct communication",
+                "On-time delivery"
+            ],
+            "pricing": [
+                {
+                    "name": "Essay",
+                    "price": "25",
+                    "description": "Per page — standard academic essay with research"
+                },
+                {
+                    "name": "Research Paper",
+                    "price": "35",
+                    "description": "Per page — in-depth research with citations"
+                },
+                {
+                    "name": "Dissertation",
+                    "price": "Custom",
+                    "description": "Full dissertation support — proposal through defense"
+                }
+            ],
+            "order": 3
+        }
+    ]
+}

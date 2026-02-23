@@ -1,0 +1,59 @@
+{
+    "testimonials": [
+        {
+            "id": "testimonial-1",
+            "name": "Sarah Johnson",
+            "role": "Marketing Director",
+            "company": "TechFlow Agency",
+            "text": "Incredible work on our company website. The performance scores are through the roof, the design is modern and professional, and the CMS makes it easy for our team to update content. Delivered ahead of schedule too. Highly recommended!",
+            "avatar": "",
+            "initials": "SJ",
+            "rating": 5,
+            "featured": true
+        },
+        {
+            "id": "testimonial-2",
+            "name": "Ahmed Al-Rashid",
+            "role": "Restaurant Owner",
+            "company": "Spice Garden",
+            "text": "The Telegram ordering bot transformed our business. Customers love ordering through Telegram — it's so convenient. Orders went up 40% in the first month. The admin panel makes it easy to update the menu and track orders.",
+            "avatar": "",
+            "initials": "AA",
+            "rating": 5,
+            "featured": true
+        },
+        {
+            "id": "testimonial-3",
+            "name": "Emily Chen",
+            "role": "PhD Candidate",
+            "company": "Stanford University",
+            "text": "Outstanding academic writing support. The research was thorough, the writing was clear and well-structured, and all my revision requests were handled promptly. My supervisor was impressed with the quality. Will definitely use again.",
+            "avatar": "",
+            "initials": "EC",
+            "rating": 5,
+            "featured": true
+        },
+        {
+            "id": "testimonial-4",
+            "name": "Marcus Williams",
+            "role": "Startup Founder",
+            "company": "DataPulse",
+            "text": "Built our SaaS dashboard from scratch. Clean code, great communication throughout the project, and the final product exceeded expectations. The attention to performance and accessibility was impressive.",
+            "avatar": "",
+            "initials": "MW",
+            "rating": 5,
+            "featured": false
+        },
+        {
+            "id": "testimonial-5",
+            "name": "Lisa Park",
+            "role": "E-Commerce Manager",
+            "company": "StyleHub",
+            "text": "The Telegram Mini App store is amazing. Our customers can browse and buy products without ever leaving Telegram. Setup was smooth and the ongoing support has been fantastic.",
+            "avatar": "",
+            "initials": "LP",
+            "rating": 4,
+            "featured": false
+        }
+    ]
+}

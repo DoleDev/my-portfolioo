@@ -1,0 +1,202 @@
+/* File: css/components/buttons.css */
+
+/*
+ * ============================================
+ *  BUTTON STYLES — REUSABLE ACROSS ALL PAGES
+ * ============================================
+ *
+ * We define button styles ONCE here and reuse them everywhere.
+ * This ensures visual consistency and makes updates easy.
+ *
+ * Button types:
+ * - .btn--primary    → Solid accent background (main CTA)
+ * - .btn--outline    → Transparent with border (secondary CTA)
+ * - .btn--ghost      → No background or border (subtle)
+ * - .btn--danger     → Red for destructive actions
+ *
+ * Button sizes:
+ * - .btn--sm         → Small
+ * - (default)        → Medium
+ * - .btn--lg         → Large
+ *
+ * Usage example: <a href="#" class="btn btn--primary btn--lg">Click Me</a>
+ */
+
+
+/* ---- Base Button Styles ---- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 0.75rem 1.75rem;
+    font-family: var(--font-primary);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+/* Focus state for accessibility */
+.btn:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+}
+
+/* Hover lift effect for all buttons */
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Arrow icon animation on hover */
+.btn svg {
+    transition: transform var(--transition-base);
+}
+.btn:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* ---- Primary Button (Solid) ---- */
+.btn--primary {
+    background: var(--accent-primary);
+    color: var(--text-on-accent);
+    border-color: var(--accent-primary);
+}
+
+.btn--primary:hover {
+    background: transparent;
+    color: var(--accent-primary);
+    box-shadow: 0 4px 15px rgba(100, 255, 218, 0.25);
+}
+
+/* Shimmer/shine effect on primary button */
+.btn--primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn--primary:hover::before {
+    left: 100%;
+}
+
+
+/* ---- Outline Button ---- */
+.btn--outline {
+    background: transparent;
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.btn--outline:hover {
+    background: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 4px 15px rgba(100, 255, 218, 0.15);
+}
+
+
+/* ---- Ghost Button (minimal) ---- */
+.btn--ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border-color: transparent;
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+}
+
+.btn--ghost:hover {
+    color: var(--accent-primary);
+    background: rgba(100, 255, 218, 0.05);
+}
+
+
+/* ---- Danger Button ---- */
+.btn--danger {
+    background: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+}
+
+.btn--danger:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+
+/* ---- Size Variants ---- */
+.btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: var(--fs-xs);
+}
+
+.btn--lg {
+    padding: 1rem 2.25rem;
+    font-size: var(--fs-base);
+}
+
+
+/* ---- Button with Icon Only ---- */
+.btn--icon {
+    padding: 0.625rem;
+    width: 40px;
+    height: 40px;
+}
+.btn--icon.btn--lg {
+    width: 48px;
+    height: 48px;
+}
+
+
+/* ---- Button Group ---- */
+.btn-group {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+
+/* ---- Light theme adjustments ---- */
+[data-theme="light"] .btn--primary {
+    background: var(--accent-primary);
+    color: var(--text-on-accent);
+    border-color: var(--accent-primary);
+}
+
+[data-theme="light"] .btn--primary:hover {
+    background: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+    color: var(--text-on-accent);
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+[data-theme="light"] .btn--outline {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+[data-theme="light"] .btn--outline:hover {
+    background: rgba(0, 102, 204, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.15);
+}

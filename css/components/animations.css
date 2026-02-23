@@ -1,0 +1,270 @@
+/* File: css/components/animations.css */
+
+/*
+ * ============================================
+ *  ANIMATION LIBRARY
+ * ============================================
+ *
+ * This file contains all reusable animations for the site.
+ *
+ * Animations are split into two types:
+ * 1. CSS @keyframes — the actual animation definitions
+ * 2. Utility classes — applied to elements to trigger animations
+ *
+ * For scroll-triggered animations, elements start hidden and animate
+ * into view when they enter the viewport. This is handled by
+ * the Intersection Observer in scroll-animations.js (Batch 3).
+ *
+ * 🔧 CUSTOMIZE: You can adjust animation durations, delays, and
+ * easing functions to change the feel. Faster = snappy, slower = elegant.
+ */
+
+
+/* ==========================================
+   SCROLL-TRIGGERED ANIMATION STATES
+   ========================================== */
+
+/*
+ * Elements with data-animation attribute start invisible.
+ * When they scroll into view, JavaScript adds the "animated" class,
+ * which triggers the animation.
+ *
+ * This creates the popular "appear on scroll" effect.
+ */
+
+[data-animation] {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When JavaScript marks them as "animated" */
+[data-animation].animated {
+    opacity: 1;
+}
+
+/* Fade in and slide up */
+[data-animation="fade-in-up"] {
+    transform: translateY(30px);
+}
+[data-animation="fade-in-up"].animated {
+    transform: translateY(0);
+}
+
+/* Fade in and slide down */
+[data-animation="fade-in-down"] {
+    transform: translateY(-30px);
+}
+[data-animation="fade-in-down"].animated {
+    transform: translateY(0);
+}
+
+/* Fade in from right */
+[data-animation="fade-in-right"] {
+    transform: translateX(30px);
+}
+[data-animation="fade-in-right"].animated {
+    transform: translateX(0);
+}
+
+/* Fade in from left */
+[data-animation="fade-in-left"] {
+    transform: translateX(-30px);
+}
+[data-animation="fade-in-left"].animated {
+    transform: translateX(0);
+}
+
+/* Scale up */
+[data-animation="scale-up"] {
+    transform: scale(0.9);
+}
+[data-animation="scale-up"].animated {
+    transform: scale(1);
+}
+
+/* Fade in only (no movement) */
+[data-animation="fade-in"] {
+    /* opacity is already set to 0 by the [data-animation] rule */
+}
+[data-animation="fade-in"].animated {
+    opacity: 1;
+}
+
+/* Stagger delays — applied via data-delay attribute in HTML */
+[data-delay="100"] { transition-delay: 100ms; }
+[data-delay="200"] { transition-delay: 200ms; }
+[data-delay="300"] { transition-delay: 300ms; }
+[data-delay="400"] { transition-delay: 400ms; }
+[data-delay="500"] { transition-delay: 500ms; }
+[data-delay="600"] { transition-delay: 600ms; }
+[data-delay="700"] { transition-delay: 700ms; }
+[data-delay="800"] { transition-delay: 800ms; }
+
+
+/* ==========================================
+   REUSABLE KEYFRAME ANIMATIONS
+   ========================================== */
+
+/* Pulse glow effect (for buttons, notifications) */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Spin (for loading indicators) */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Shimmer effect (for loading skeletons) */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Float up and down (gentle hovering effect) */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Shake (for form validation errors) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Slide in from bottom (for toasts, notifications) */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide out to bottom */
+@keyframes slideOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Fade out */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Scale in (for modals) */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================
+   UTILITY ANIMATION CLASSES
+   ========================================== */
+
+.animate-pulse { animation: pulse 2s ease-in-out infinite; }
+.animate-spin { animation: spin 1s linear infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-shake { animation: shake 0.6s ease-in-out; }
+
+/* Stagger children — adds delay to each child for a cascade effect */
+.stagger-children > *:nth-child(1) { transition-delay: 50ms; }
+.stagger-children > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children > *:nth-child(3) { transition-delay: 150ms; }
+.stagger-children > *:nth-child(4) { transition-delay: 200ms; }
+.stagger-children > *:nth-child(5) { transition-delay: 250ms; }
+.stagger-children > *:nth-child(6) { transition-delay: 300ms; }
+.stagger-children > *:nth-child(7) { transition-delay: 350ms; }
+.stagger-children > *:nth-child(8) { transition-delay: 400ms; }
+
+
+/* ==========================================
+   HOVER EFFECT UTILITIES
+   ========================================== */
+
+/* Lift on hover */
+.hover-lift {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Glow on hover */
+.hover-glow {
+    transition: box-shadow var(--transition-base);
+}
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+/* Scale on hover */
+.hover-scale {
+    transition: transform var(--transition-base);
+}
+.hover-scale:hover {
+    transform: scale(1.03);
+}
+
+/* Border glow on hover */
+.hover-border-glow {
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.hover-border-glow:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.1);
+}
+
+
+/* ==========================================
+   REDUCED MOTION PREFERENCE
+   ========================================== */
+/*
+ * IMPORTANT ACCESSIBILITY FEATURE:
+ * Some users have motion sensitivity and configure their OS to reduce motion.
+ * This media query detects that preference and disables animations for them.
+ * This is not optional — it's an accessibility requirement.
+ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-animation] {
+        opacity: 1;
+        transform: none;
+    }
+}
