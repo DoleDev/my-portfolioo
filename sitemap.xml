@@ -89,3 +89,94 @@
     </url>
 
 </urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    File: sitemap.xml
+    ==============================================
+    SITEMAP — PAGE LISTING FOR SEARCH ENGINES
+    ==============================================
+
+    Lists every public page on your site so search engines
+    can discover and index them efficiently.
+
+    Submit this to Google Search Console:
+    https://search.google.com/search-console
+    → Select your property → Sitemaps → Enter "sitemap.xml" → Submit
+
+    🔧 CUSTOMIZE:
+    1. Replace ALL "https://your-site-name.netlify.app" with YOUR actual URL
+    2. Update <lastmod> dates when you update pages
+    3. Add new <url> entries when you create new pages
+    4. Add blog post URLs as you publish them
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home Page — highest priority -->
+    <url>
+        <loc>https://your-site-name.netlify.app/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About Page -->
+    <url>
+        <loc>https://your-site-name.netlify.app/about.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Services Page -->
+    <url>
+        <loc>https://your-site-name.netlify.app/services.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Portfolio Page -->
+    <url>
+        <loc>https://your-site-name.netlify.app/portfolio.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Shop Page -->
+    <url>
+        <loc>https://your-site-name.netlify.app/shop.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Blog Listing Page -->
+    <url>
+        <loc>https://your-site-name.netlify.app/blog.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact Page -->
+    <url>
+        <loc>https://your-site-name.netlify.app/contact.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!--
+        BLOG POSTS
+        🔧 CUSTOMIZE: Add a <url> for each blog post.
+        Example below — duplicate and modify for each post.
+    -->
+    <url>
+        <loc>https://your-site-name.netlify.app/blog-post.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+</urlset>

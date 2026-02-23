@@ -30,3 +30,35 @@ Disallow: /offline.html
 
 # 🔧 CUSTOMIZE: Replace with YOUR actual deployed URL
 Sitemap: https://your-site-name.netlify.app/sitemap.xml
+# File: robots.txt
+# ============================================
+#    SEARCH ENGINE CRAWLER INSTRUCTIONS
+# ============================================
+#
+# This file tells search engine crawlers (Googlebot, Bingbot, etc.)
+# which pages they're allowed to crawl and index.
+#
+# User-agent: * = applies to ALL crawlers
+# Allow: / = allow crawling everything
+# Disallow: /path/ = block crawling this path
+# Sitemap: URL = location of your sitemap
+#
+# 🔧 CUSTOMIZE: Replace the Sitemap URL with YOUR actual domain.
+# ============================================
+
+# Allow all crawlers to index all public pages
+User-agent: *
+Allow: /
+
+# Block admin/CMS pages from search engines
+Disallow: /admin/
+Disallow: /admin
+
+# Block data files from being indexed directly
+Disallow: /data/
+
+# Block offline page from indexing
+Disallow: /offline.html
+
+# 🔧 CUSTOMIZE: Replace with YOUR actual deployed URL
+Sitemap: https://your-site-name.netlify.app/sitemap.xml

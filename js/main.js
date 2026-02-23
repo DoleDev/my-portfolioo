@@ -31,6 +31,7 @@
     /* ==========================================
        1. THEME TOGGLE (Dark/Light Mode)
        ========================================== */
+
     /*
      * How it works:
      * - We check for saved preference in localStorage (persists across visits)
@@ -90,6 +91,7 @@
     /* ==========================================
        2. MOBILE NAVIGATION
        ========================================== */
+
     /*
      * On mobile screens, the nav links are hidden and replaced with a
      * hamburger button (☰). Clicking it slides the menu open.
@@ -136,7 +138,7 @@
             /* Toggle button click */
             this.toggle.addEventListener('click', () => this.toggleMenu());
 
-            /* Close when a nav link is clicked */
+            /* Close when a nav link is clicked (but don't prevent navigation!) */
             const navLinks = this.menu.querySelectorAll('.nav__link');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => this.close());
@@ -146,7 +148,7 @@
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && this.isOpen) {
                     this.close();
-                    this.toggle.focus(); /* Return focus to toggle button */
+                    this.toggle.focus();  /* Return focus to toggle button */
                 }
             });
 
@@ -165,6 +167,7 @@
     /* ==========================================
        3. STICKY HEADER
        ========================================== */
+
     /*
      * When the user scrolls down past a threshold, we add a "scrolled"
      * class to the header. This triggers the glassmorphism background
@@ -177,9 +180,9 @@
             this.header = document.getElementById('header');
             if (!this.header) return;
 
-            this.scrollThreshold = 50; /* pixels from top before activating */
+            this.scrollThreshold = 50;  /* pixels from top before activating */
             this.bindEvents();
-            this.check(); /* Check initial scroll position (in case page loads scrolled) */
+            this.check();  /* Check initial scroll position (in case page loads scrolled) */
         },
 
         check() {
@@ -200,9 +203,14 @@
     /* ==========================================
        4. SMOOTH SCROLL FOR ANCHOR LINKS
        ========================================== */
+
     /*
      * When you click a link like <a href="#services">, the page
      * should scroll smoothly to that section instead of jumping.
+     *
+     * IMPORTANT FIX: We ONLY intercept links that point to an anchor
+     * on the CURRENT page (href starts with "#"). We must NOT interfere
+     * with links to other pages (like "about.html", "services.html").
      *
      * Note: We already set scroll-behavior: smooth in CSS, but this
      * JS version gives us more control (like adjusting for header height).
@@ -213,11 +221,19 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', (e) => {
                     const targetId = anchor.getAttribute('href');
-                    if (targetId === '#') return; /* Skip empty hash links */
 
+                    /* Skip empty hash links — let them behave normally */
+                    if (targetId === '#') return;
+
+                    /*
+                     * FIX: Only preventDefault if the target element actually
+                     * exists on the current page. If not, let the browser
+                     * handle the link normally (which allows navigation).
+                     */
                     const target = document.querySelector(targetId);
                     if (target) {
                         e.preventDefault();
+
                         const headerOffset = parseInt(
                             getComputedStyle(document.documentElement)
                                 .getPropertyValue('--header-height')
@@ -231,6 +247,8 @@
                             behavior: 'smooth'
                         });
                     }
+                    /* If target doesn't exist on page, we do NOT call
+                       e.preventDefault(), so the browser navigates normally */
                 });
             });
         }
@@ -240,6 +258,7 @@
     /* ==========================================
        5. SCROLL-TRIGGERED ANIMATIONS
        ========================================== */
+
     /*
      * This uses the Intersection Observer API — a modern, performant
      * way to detect when elements scroll into view.
@@ -269,7 +288,7 @@
             }
 
             const options = {
-                root: null,          /* null = viewport */
+                root: null,         /* null = viewport */
                 rootMargin: '0px',
                 threshold: 0.15     /* Trigger when 15% of element is visible */
             };
@@ -278,7 +297,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animated');
-                        this.observer.unobserve(entry.target); /* Only animate once */
+                        this.observer.unobserve(entry.target);  /* Only animate once */
                     }
                 });
             }, options);
@@ -294,6 +313,7 @@
     /* ==========================================
        6. ACTIVE NAV LINK HIGHLIGHTING
        ========================================== */
+
     /*
      * Highlights the nav link corresponding to the current page.
      * We check the current URL and compare with each nav link's href.
@@ -307,6 +327,7 @@
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 const linkPage = link.getAttribute('href');
+
                 if (linkPage === currentPage) {
                     link.classList.add('active');
                 }
@@ -318,20 +339,18 @@
     /* ==========================================
        7. STATS COUNTER ANIMATION
        ========================================== */
+
     /*
      * Animates numbers counting up from 0 to their target value.
      * Uses Intersection Observer to trigger only when visible.
      * Uses requestAnimationFrame for smooth, performant animation.
      */
 
-        /* ==========================================
-       7. STATS COUNTER ANIMATION
-       ========================================== */
-
     const StatsCounter = {
         init() {
             /* Select ALL elements with data-target, regardless of class name */
             const statNumbers = document.querySelectorAll('[data-target]');
+
             if (statNumbers.length === 0) return;
 
             if (!('IntersectionObserver' in window)) {
@@ -381,6 +400,7 @@
     /* ==========================================
        INITIALIZE EVERYTHING
        ========================================== */
+
     /*
      * DOMContentLoaded fires when the HTML is fully parsed (but before
      * images are loaded). This is the ideal time to initialize our JS.

@@ -1,8 +1,7 @@
 ---
 backend:
-  name: github
-  repo: DoleDev/my-portfolioo
-  branch: master
+  name: git-gateway
+  branch: main
 media_folder: images/uploads
 public_folder: /images/uploads
 publish_mode: editorial_workflow
