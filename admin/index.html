@@ -86,33 +86,6 @@
         It reads ./config.yml and renders the admin interface.
     -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-    <!--
-        Netlify Identity redirect handler.
-        After a user logs in via the Identity widget,
-        they're redirected back to the site. This script
-        detects that redirect and sends them to /admin/.
-
-        This script should ALSO be added to your main site's
-        index.html (we'll do that in Batch 14).
-    -->
-    <script>
-        /*
-         * Handle Netlify Identity login redirect.
-         * When a user confirms their email or logs in via
-         * an external provider, Netlify redirects them with
-         * a hash fragment (#invite_token=... or #access_token=...).
-         * This script detects that and redirects to /admin/.
-         */
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on('init', function(user) {
-                if (!user) {
-                    window.netlifyIdentity.on('login', function() {
-                        document.location.href = '/admin/';
-                    });
-                }
-            });
-        }
-    </script>
+   
 </body>
 </html>
