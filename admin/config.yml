@@ -1,129 +1,25 @@
-# File: admin/config.yml
-# ============================================
-#    DECAP CMS CONFIGURATION
-# ============================================
-#
-# This file tells Decap CMS everything about your content:
-# - Where it lives (GitHub repo + branch)
-# - What content types ("collections") exist
-# - What fields each content type has
-# - What widget (input type) each field uses
-#
-# YAML syntax basics:
-# - Indentation matters (use 2 spaces, NOT tabs)
-# - Lists use "- " (dash + space)
-# - Key-value pairs use "key: value"
-# - Strings with special characters need quotes
-#
-# 🔧 CUSTOMIZE: You MUST update the "repo" value below
-#    to match YOUR GitHub repository.
-# ============================================
-
-
-# ==========================================
-# BACKEND — Where content is stored
-# ==========================================
-backend:
-  # "git-gateway" works with Netlify Identity for authentication.
-  # This is the easiest setup — users log in via the Netlify Identity
-  # widget and the CMS reads/writes to your GitHub repo via Netlify"s
-  # Git Gateway service.
-  name: git-gateway
-
-  # Which branch to read/write content.
-  # "main" is the default for most GitHub repos.
-  # Change to "master" if your repo uses that.
-  branch: main
-
-  # 🔧 CUSTOMIZE: Uncomment and set your repo if using github backend
-  # name: github
-  # repo: your-username/your-repo-name
-  # branch: main
-
-
-# ==========================================
-# MEDIA — Where uploaded images are stored
-# ==========================================
-# When you upload an image through the CMS media library,
-# it gets saved to this folder in your repo.
-media_folder: "images/uploads"
-
-# The public URL path for those images.
-# This is what gets inserted into your content.
-public_folder: "/images/uploads"
-
-
-# ==========================================
-# EDITORIAL WORKFLOW (optional)
-# ==========================================
-# Enables a Draft → In Review → Ready workflow.
-# Content goes through stages before being published.
-# Each stage creates a pull request on GitHub.
-# Comment out the line below if you want instant publishing.
-publish_mode: editorial_workflow
-
-
-# ==========================================
-# SITE URL — Used for preview links
-# ==========================================
-# 🔧 CUSTOMIZE: Replace with YOUR deployed site URL
-site_url: https://your-site-name.netlify.app
-display_url: https://your-site-name.netlify.app
-logo_url: https://your-site-name.netlify.app/images/icons/favicon.ico
-
-
-# ==========================================
-# SLUG — How filenames are generated
-# ==========================================
-slug:
-  encoding: "ascii"
-  clean_accents: true
-  sanitize_replacement: "-"
-
-
-# ==========================================
-# COLLECTIONS — Your content types
-# ==========================================
-# Each collection defines a type of content you can manage.
-# Collections can be either:
-#   - "folder" based: multiple files in a directory (like blog posts)
-#   - "file" based: a single file (like site settings or a JSON data file)
-#
 collections:
-
-  # ========================================
-  # 1. BLOG POSTS
-  # ========================================
-  # Each post is a separate Markdown file in blog/posts/
-  # The CMS creates/edits/deletes files in this folder.
   - name: "blog"
     label: "Blog Posts"
     label_singular: "Blog Post"
     description: "Create and manage blog articles"
     folder: "blog/posts"
-    create: true          # Allow creating new posts
-    delete: true          # Allow deleting posts
-    extension: "md"       # File extension for posts
-    format: "frontmatter" # YAML front matter + Markdown body
-    slug: "{{slug}}"      # Filename = slugified title
-
-    # How posts are sorted in the CMS list
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
     sortable_fields:
       fields: ["date", "title"]
       default:
         field: "date"
         direction: "Descending"
-
-    # Summary line shown in the CMS post list
-    summary: "{{title}} — {{date | date("YYYY-MM-DD")}}"
-
-    # Fields for each blog post
+    summary: "{{title}} — {{date | date(\"YYYY-MM-DD\")}}"
     fields:
       - label: "Title"
         name: "title"
         widget: "string"
         hint: "The headline of your blog post"
-
       - label: "Publish Date"
         name: "date"
         widget: "datetime"
@@ -131,7 +27,6 @@ collections:
         time_format: "HH:mm"
         format: "YYYY-MM-DD"
         hint: "When this post was/will be published"
-
       - label: "Description"
         name: "description"
         widget: "text"
@@ -139,7 +34,6 @@ collections:
         pattern:
           - ".{10,300}"
           - "Must be between 10 and 300 characters"
-
       - label: "Featured Image"
         name: "thumbnail"
         widget: "image"
@@ -148,7 +42,6 @@ collections:
         media_library:
           config:
             max_file_size: 2048000  # 2MB
-
       - label: "Category"
         name: "category"
         widget: "select"
@@ -160,7 +53,6 @@ collections:
           - { label: "Tutorials", value: "tutorials" }
           - { label: "Career", value: "career" }
         hint: "Primary category for this post"
-
       - label: "Tags"
         name: "tags"
         widget: "list"
@@ -169,35 +61,26 @@ collections:
           label: "Tag"
           name: "tag"
           widget: "string"
-
       - label: "Reading Time"
         name: "reading_time"
         widget: "string"
         default: "5 min"
         hint: "Estimated reading time (e.g., "8 min")"
-
       - label: "Featured Post"
         name: "featured"
         widget: "boolean"
         default: false
         hint: "Show this post prominently on the blog listing page?"
-
       - label: "Draft"
         name: "draft"
         widget: "boolean"
         default: false
         hint: "Draft posts are not shown on the live site"
-
       - label: "Body"
         name: "body"
         widget: "markdown"
         hint: "The full article content. Supports headings, bold, links, code blocks, images, and more."
 
-
-  # ========================================
-  # 2. PORTFOLIO PROJECTS
-  # ========================================
-  # Stored as a single JSON file: data/projects.json
   - name: "projects"
     label: "Portfolio Projects"
     description: "Manage your portfolio project showcase"
@@ -214,29 +97,24 @@ collections:
             name: "id"
             widget: "string"
             hint: "Unique identifier (lowercase, dashes). Example: telegram-food-bot"
-
           - label: "Title"
             name: "title"
             widget: "string"
             hint: "Project name"
-
           - label: "Short Description"
             name: "description"
             widget: "text"
             hint: "One-liner shown on portfolio cards"
-
           - label: "Long Description"
             name: "longDescription"
             widget: "markdown"
             required: false
             hint: "Detailed description for the project detail view"
-
           - label: "Image"
             name: "image"
             widget: "image"
             required: false
             hint: "Project screenshot or mockup"
-
           - label: "Category"
             name: "category"
             widget: "select"
@@ -246,7 +124,6 @@ collections:
               - { label: "SaaS / Tool", value: "saas" }
               - { label: "E-Commerce", value: "ecommerce" }
               - { label: "Other", value: "other" }
-
           - label: "Technologies"
             name: "technologies"
             widget: "list"
@@ -255,38 +132,27 @@ collections:
               name: "tech"
               widget: "string"
             hint: "e.g., Python, JavaScript, React, Node.js"
-
           - label: "Live URL"
             name: "liveUrl"
             widget: "string"
             required: false
             hint: "Link to the live project"
-
           - label: "GitHub URL"
             name: "githubUrl"
             widget: "string"
             required: false
             hint: "Link to the source code"
-
           - label: "Featured"
             name: "featured"
             widget: "boolean"
             default: false
             hint: "Show on home page?"
-
           - label: "Display Order"
             name: "order"
             widget: "number"
             default: 99
             value_type: "int"
-            min: 1
-            max: 100
-            hint: "Lower number = appears first"
 
-
-  # ========================================
-  # 3. SERVICES
-  # ========================================
   - name: "services"
     label: "Services"
     description: "Manage your service offerings and pricing"
@@ -303,21 +169,17 @@ collections:
             name: "id"
             widget: "string"
             hint: "Unique identifier (e.g., web-development)"
-
           - label: "Title"
             name: "title"
             widget: "string"
-
           - label: "Description"
             name: "description"
             widget: "text"
             hint: "Short description of the service"
-
           - label: "Icon Emoji"
             name: "icon"
             widget: "string"
             hint: "Emoji used as icon (e.g., 💻, 🤖, 📝)"
-
           - label: "Features"
             name: "features"
             widget: "list"
@@ -325,8 +187,7 @@ collections:
               label: "Feature"
               name: "feature"
               widget: "string"
-            hint: "List of what"s included"
-
+            hint: "List of what's included"
           - label: "Pricing Tiers"
             name: "pricing"
             widget: "list"
@@ -337,28 +198,21 @@ collections:
                 name: "name"
                 widget: "string"
                 hint: "e.g., Basic, Standard, Premium"
-
               - label: "Price"
                 name: "price"
                 widget: "string"
                 hint: "e.g., 499, 999, Custom"
-
               - label: "Description"
                 name: "description"
                 widget: "string"
                 required: false
                 hint: "What this tier includes"
-
           - label: "Display Order"
             name: "order"
             widget: "number"
             default: 99
             value_type: "int"
 
-
-  # ========================================
-  # 4. TESTIMONIALS
-  # ========================================
   - name: "testimonials"
     label: "Testimonials"
     description: "Manage client testimonials and reviews"
@@ -374,36 +228,29 @@ collections:
           - label: "ID"
             name: "id"
             widget: "string"
-
           - label: "Client Name"
             name: "name"
             widget: "string"
-
           - label: "Role / Title"
             name: "role"
             widget: "string"
             hint: "e.g., CEO, Project Manager"
-
           - label: "Company"
             name: "company"
             widget: "string"
-
           - label: "Testimonial Text"
             name: "text"
             widget: "text"
-            hint: "The client"s testimonial/review"
-
+            hint: "The client's testimonial/review"
           - label: "Avatar"
             name: "avatar"
             widget: "image"
             required: false
             hint: "Client photo"
-
           - label: "Initials"
             name: "initials"
             widget: "string"
             hint: "Fallback initials if no avatar (e.g., JD)"
-
           - label: "Rating"
             name: "rating"
             widget: "number"
@@ -411,17 +258,12 @@ collections:
             value_type: "int"
             min: 1
             max: 5
-
           - label: "Featured"
             name: "featured"
             widget: "boolean"
             default: false
             hint: "Show on home page?"
 
-
-  # ========================================
-  # 5. SHOP PRODUCTS
-  # ========================================
   - name: "products"
     label: "Shop Products"
     description: "Manage digital products and templates"
@@ -438,34 +280,28 @@ collections:
             name: "id"
             widget: "string"
             hint: "Unique identifier (e.g., portfolio-template-pro)"
-
           - label: "Title"
             name: "title"
             widget: "string"
-
           - label: "Description"
             name: "description"
             widget: "text"
-
           - label: "Price"
             name: "price"
             widget: "number"
             value_type: "float"
             min: 0
             hint: "Current price in USD"
-
           - label: "Original Price"
             name: "originalPrice"
             widget: "number"
             value_type: "float"
             required: false
             hint: "Strike-through price (for showing discount)"
-
           - label: "Image"
             name: "image"
             widget: "image"
             required: false
-
           - label: "Category"
             name: "category"
             widget: "select"
@@ -475,7 +311,6 @@ collections:
               - { label: "Plugin", value: "plugin" }
               - { label: "Course", value: "course" }
               - { label: "Other", value: "other" }
-
           - label: "Features"
             name: "features"
             widget: "list"
@@ -483,31 +318,22 @@ collections:
               label: "Feature"
               name: "feature"
               widget: "string"
-            hint: "List of product features/what"s included"
-
+            hint: "List of product features/what's included"
           - label: "Download URL"
             name: "downloadUrl"
             widget: "string"
             required: false
             hint: "Link to download or purchase page (Gumroad, Lemon Squeezy, etc.)"
-
           - label: "Featured"
             name: "featured"
             widget: "boolean"
             default: false
-
           - label: "Display Order"
             name: "order"
             widget: "number"
             default: 99
             value_type: "int"
 
-
-  # ========================================
-  # 6. SITE SETTINGS (optional)
-  # ========================================
-  # A single file for global site configuration
-  # that can be edited through the CMS.
   - name: "settings"
     label: "Site Settings"
     description: "Global site configuration"
@@ -518,16 +344,13 @@ collections:
         name: "siteName"
         widget: "string"
         default: "Your Name"
-
       - label: "Site Tagline"
         name: "tagline"
         widget: "string"
         default: "Full-Stack Developer"
-
       - label: "Email"
         name: "email"
         widget: "string"
-
       - label: "Social Links"
         name: "social"
         widget: "object"
@@ -536,33 +359,27 @@ collections:
             name: "github"
             widget: "string"
             required: false
-
           - label: "LinkedIn"
             name: "linkedin"
             widget: "string"
             required: false
-
           - label: "Twitter / X"
             name: "twitter"
             widget: "string"
             required: false
-
           - label: "Telegram"
             name: "telegram"
             widget: "string"
             required: false
-
       - label: "Notification Bar Text"
         name: "notificationBar"
         widget: "string"
         required: false
         hint: "Text shown in the top notification bar. Leave empty to hide."
-
       - label: "Notification Bar Link"
         name: "notificationBarLink"
         widget: "string"
         required: false
-
       - label: "Resume URL"
         name: "resumeUrl"
         widget: "file"
