@@ -1,13 +1,14 @@
 ---
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: DoleDev/my-portfolioo
+  branch: master
 media_folder: images/uploads
 public_folder: /images/uploads
 publish_mode: editorial_workflow
-site_url: https://your-site-name.netlify.app
-display_url: https://your-site-name.netlify.app
-logo_url: https://your-site-name.netlify.app/images/icons/favicon.ico
+site_url: https://doledev.vercel.app/
+display_url: https://doledev.vercel.app/
+logo_url: https://doledev.vercel.app//images/icons/favicon.ico
 slug:
   encoding: ascii
   clean_accents: true
