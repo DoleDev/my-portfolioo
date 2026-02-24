@@ -4,8 +4,295 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
+    <style>
+      body { margin: 0; }
+    </style>
   </head>
   <body>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // CHANGE THESE TWO VALUES
+      var GITHUB_REPO = "YOUR-USERNAME/YOUR-REPO-NAME";
+      var SITE_URL = "https://YOUR-SITE.vercel.app";
+
+      CMS.init({
+        config: {
+          load_config_file: false,
+          backend: {
+            name: "github",
+            repo: GITHUB_REPO,
+            branch: "main",
+            base_url: "https://sveltia-cms-auth.netlify.app"
+          },
+          media_folder: "images/uploads",
+          public_folder: "/images/uploads",
+          site_url: SITE_URL,
+          collections: [
+            {
+              name: "blog",
+              label: "Blog Posts",
+              label_singular: "Blog Post",
+              folder: "blog/posts",
+              create: true,
+              delete: true,
+              extension: "md",
+              format: "frontmatter",
+              slug: "{{slug}}",
+              sortable_fields: ["date", "title"],
+              summary: "{{title}} — {{date}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string"
+                },
+                {
+                  label: "Publish Date",
+                  name: "date",
+                  widget: "datetime",
+                  date_format: "YYYY-MM-DD",
+                  format: "YYYY-MM-DD"
+                },
+                {
+                  label: "Description",
+                  name: "description",
+                  widget: "text"
+                },
+                {
+                  label: "Featured Image",
+                  name: "thumbnail",
+                  widget: "image",
+                  required: false
+                },
+                {
+                  label: "Category",
+                  name: "category",
+                  widget: "select",
+                  options: [
+                    { label: "Development", value: "development" },
+                    { label: "Telegram", value: "telegram" },
+                    { label: "Tools", value: "tools" },
+                    { label: "Business", value: "business" },
+                    { label: "Tutorials", value: "tutorials" },
+                    { label: "Career", value: "career" }
+                  ]
+                },
+                {
+                  label: "Tags",
+                  name: "tags",
+                  widget: "list"
+                },
+                {
+                  label: "Reading Time",
+                  name: "reading_time",
+                  widget: "string",
+                  default: "5 min"
+                },
+                {
+                  label: "Featured Post",
+                  name: "featured",
+                  widget: "boolean",
+                  default: false
+                },
+                {
+                  label: "Draft",
+                  name: "draft",
+                  widget: "boolean",
+                  default: false
+                },
+                {
+                  label: "Body",
+                  name: "body",
+                  widget: "markdown"
+                }
+              ]
+            },
+            {
+              name: "projects",
+              label: "Portfolio Projects",
+              files: [
+                {
+                  label: "Projects Data",
+                  name: "projects-data",
+                  file: "data/projects.json",
+                  format: "json",
+                  fields: [
+                    {
+                      label: "Projects",
+                      name: "projects",
+                      widget: "list",
+                      fields: [
+                        { label: "ID", name: "id", widget: "string" },
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Description", name: "description", widget: "text" },
+                        { label: "Image", name: "image", widget: "image", required: false },
+                        {
+                          label: "Category",
+                          name: "category",
+                          widget: "select",
+                          options: [
+                            { label: "Web Development", value: "web" },
+                            { label: "Telegram Bot", value: "telegram" },
+                            { label: "SaaS / Tool", value: "saas" },
+                            { label: "E-Commerce", value: "ecommerce" },
+                            { label: "Other", value: "other" }
+                          ]
+                        },
+                        { label: "Technologies", name: "technologies", widget: "list" },
+                        { label: "Live URL", name: "liveUrl", widget: "string", required: false },
+                        { label: "GitHub URL", name: "githubUrl", widget: "string", required: false },
+                        { label: "Featured", name: "featured", widget: "boolean", default: false },
+                        { label: "Order", name: "order", widget: "number", default: 99 }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: "services",
+              label: "Services",
+              files: [
+                {
+                  label: "Services Data",
+                  name: "services-data",
+                  file: "data/services.json",
+                  format: "json",
+                  fields: [
+                    {
+                      label: "Services",
+                      name: "services",
+                      widget: "list",
+                      fields: [
+                        { label: "ID", name: "id", widget: "string" },
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Description", name: "description", widget: "text" },
+                        { label: "Icon Emoji", name: "icon", widget: "string" },
+                        { label: "Features", name: "features", widget: "list" },
+                        {
+                          label: "Pricing Tiers",
+                          name: "pricing",
+                          widget: "list",
+                          fields: [
+                            { label: "Tier Name", name: "name", widget: "string" },
+                            { label: "Price", name: "price", widget: "string" },
+                            { label: "Description", name: "description", widget: "string", required: false }
+                          ]
+                        },
+                        { label: "Order", name: "order", widget: "number", default: 99 }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: "testimonials",
+              label: "Testimonials",
+              files: [
+                {
+                  label: "Testimonials Data",
+                  name: "testimonials-data",
+                  file: "data/testimonials.json",
+                  format: "json",
+                  fields: [
+                    {
+                      label: "Testimonials",
+                      name: "testimonials",
+                      widget: "list",
+                      fields: [
+                        { label: "ID", name: "id", widget: "string" },
+                        { label: "Client Name", name: "name", widget: "string" },
+                        { label: "Role", name: "role", widget: "string" },
+                        { label: "Company", name: "company", widget: "string" },
+                        { label: "Testimonial Text", name: "text", widget: "text" },
+                        { label: "Avatar", name: "avatar", widget: "image", required: false },
+                        { label: "Initials", name: "initials", widget: "string" },
+                        { label: "Rating", name: "rating", widget: "number", default: 5, min: 1, max: 5 },
+                        { label: "Featured", name: "featured", widget: "boolean", default: false }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: "products",
+              label: "Shop Products",
+              files: [
+                {
+                  label: "Products Data",
+                  name: "products-data",
+                  file: "data/products.json",
+                  format: "json",
+                  fields: [
+                    {
+                      label: "Products",
+                      name: "products",
+                      widget: "list",
+                      fields: [
+                        { label: "ID", name: "id", widget: "string" },
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Description", name: "description", widget: "text" },
+                        { label: "Price", name: "price", widget: "number", value_type: "float", min: 0 },
+                        { label: "Original Price", name: "originalPrice", widget: "number", value_type: "float", required: false },
+                        { label: "Image", name: "image", widget: "image", required: false },
+                        {
+                          label: "Category",
+                          name: "category",
+                          widget: "select",
+                          options: [
+                            { label: "Template", value: "template" },
+                            { label: "Bot", value: "bot" },
+                            { label: "Plugin", value: "plugin" },
+                            { label: "Course", value: "course" },
+                            { label: "Other", value: "other" }
+                          ]
+                        },
+                        { label: "Features", name: "features", widget: "list" },
+                        { label: "Download URL", name: "downloadUrl", widget: "string", required: false },
+                        { label: "Featured", name: "featured", widget: "boolean", default: false },
+                        { label: "Order", name: "order", widget: "number", default: 99 }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: "settings",
+              label: "Site Settings",
+              files: [
+                {
+                  label: "Settings Data",
+                  name: "settings-data",
+                  file: "data/settings.json",
+                  format: "json",
+                  fields: [
+                    { label: "Site Name", name: "siteName", widget: "string", default: "Your Name" },
+                    { label: "Site Tagline", name: "tagline", widget: "string", default: "Full-Stack Developer" },
+                    { label: "Email", name: "email", widget: "string" },
+                    {
+                      label: "Social Links",
+                      name: "social",
+                      widget: "object",
+                      fields: [
+                        { label: "GitHub", name: "github", widget: "string", required: false },
+                        { label: "LinkedIn", name: "linkedin", widget: "string", required: false },
+                        { label: "Twitter / X", name: "twitter", widget: "string", required: false },
+                        { label: "Telegram", name: "telegram", widget: "string", required: false }
+                      ]
+                    },
+                    { label: "Notification Bar Text", name: "notificationBar", widget: "string", required: false },
+                    { label: "Notification Bar Link", name: "notificationBarLink", widget: "string", required: false },
+                    { label: "Resume URL", name: "resumeUrl", widget: "file", required: false }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      });
+    </script>
   </body>
 </html>
