@@ -42,7 +42,7 @@
             "avatar": "",
             "initials": "MW",
             "rating": 5,
-            "featured": false
+            "featured": true
         },
         {
             "id": "testimonial-5",
@@ -53,7 +53,7 @@
             "avatar": "",
             "initials": "LP",
             "rating": 4,
-            "featured": false
+            "featured": true
         }
     ]
 }
