@@ -1,4 +1,5 @@
 {
+  "buildCommand": "node scripts/build-blog.js",
   "rewrites": [
     {
       "source": "/admin",
