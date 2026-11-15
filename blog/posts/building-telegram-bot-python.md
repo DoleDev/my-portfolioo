@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
 ```
 
-This is a minimal but complete bot. The Application class handles all the communication with Telegram's servers. We register two handlers: one for the /start command and one for all text messages.
+This is a minimal but complete bot. The Application class handles all the communication with Telegram's servers. We register two handlers: one for the /start command and one for all text messages. 
 
 ### Adding Advanced Features
 
