@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": "building-telegram-bot-python",
+      "title": "Building a Telegram Bot with Python",
+      "date": "2026-11-15",
+      "description": "Learn how to build and deploy a custom Telegram bot from scratch using Python.",
+      "category": "telegram",
+      "tags": ["telegram", "python", "bot"],
+      "readTime": "5 min read",
+      "image": "",
+      "draft": false,
+      "order": 1
+    }
+  ]
+}
