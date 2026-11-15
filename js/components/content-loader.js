@@ -50,7 +50,7 @@
             projects:     'data/projects.json',
             services:     'data/services.json',
             testimonials: 'data/testimonials.json',
-            products:     'data/products.json'
+            products:     'data/products.json',
             blog:         'data/blog.json'
         },
 
