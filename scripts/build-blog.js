@@ -1,73 +1,59 @@
 const fs = require('fs');
 const path = require('path');
+const matter = require('gray-matter');
 
-const postsDir = path.join(__dirname, '../blog/posts');
+const postsDir = path.join(__dirname, '../blog/posts');   // ← your actual folder
 const outputFile = path.join(__dirname, '../data/blog.json');
 
-function parseFrontmatter(fileContent) {
-    const match = fileContent.match(/^---\s*([\s\S]*?)\s*---([\s\S]*)$/);
-    if (!match) return { metadata: {}, content: fileContent };
-
-    const frontmatterLines = match[1].split('\n');
-    const metadata = {};
-    frontmatterLines.forEach(line => {
-        const colonIndex = line.indexOf(':');
-        if (colonIndex !== -1) {
-            const key = line.slice(0, colonIndex).trim();
-            let value = line.slice(colonIndex + 1).trim();
-            if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-                value = value.slice(1, -1);
-            }
-            if (value === 'true') value = true;
-            if (value === 'false') value = false;
-            metadata[key] = value;
-        }
-    });
-
-    return { metadata, content: match[2].trim() };
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
 }
 
-function buildBlogJson() {
-    if (!fs.existsSync(postsDir)) {
-        console.log('No blog/posts directory found.');
-        return;
-    }
+function buildBlog() {
+  if (!fs.existsSync(postsDir)) {
+    console.log('❌ Folder blog/posts not found');
+    return;
+  }
 
-    const files = fs.readdirSync(postsDir);
-    const posts = [];
+  const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));
+  const posts = [];
 
-    files.forEach(file => {
-        if (!file.endsWith('.md')) return;
+  files.forEach(file => {
+    const filePath = path.join(postsDir, file);
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const { data, content } = matter(fileContent);
 
-        const filePath = path.join(postsDir, file);
-        const fileContent = fs.readFileSync(filePath, 'utf8');
-        const { metadata, content } = parseFrontmatter(fileContent);
+    // Skip drafts
+    if (data.draft === true || data.draft === 'true') return;
 
-        const slug = file.replace(/\.md$/, '');
+    const id = data.id || slugify(data.title || file.replace('.md', ''));
 
-        posts.push({
-            id: metadata.id || slug,
-            title: metadata.title || 'Untitled Post',
-            date: metadata.date || new Date().toISOString().split('T')[0],
-            description: metadata.description || '',
-            category: metadata.category || 'development',
-            tags: metadata.tags || [],
-            readTime: metadata.readTime || '5 min read',
-            image: metadata.image || '',
-            draft: metadata.draft === true,
-            order: metadata.order || 99,
-            content: content
-        });
+    posts.push({
+      id,
+      title: data.title || 'Untitled',
+      date: data.date || new Date().toISOString().split('T')[0],
+      description: data.description || '',
+      category: data.category || 'general',
+      tags: data.tags || [],
+      readTime: data.reading_time || data.readTime || '5 min read',
+      image: data.thumbnail || data.image || '',
+      featured: data.featured || false,
+      draft: false,
+      order: data.order || 99,
+      content: content.trim()
     });
+  });
 
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Newest first
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    const output = { posts };
-    if (!fs.existsSync(path.dirname(outputFile))) {
-        fs.mkdirSync(path.dirname(outputFile), { recursive: true });
-    }
-    fs.writeFileSync(outputFile, JSON.stringify(output, null, 2));
-    console.log(`Successfully generated blog.json with ${posts.length} posts!`);
+  fs.writeFileSync(outputFile, JSON.stringify({ posts }, null, 2));
+  console.log(`✅ Built ${posts.length} posts → data/blog.json`);
 }
 
-buildBlogJson();
+buildBlog();
