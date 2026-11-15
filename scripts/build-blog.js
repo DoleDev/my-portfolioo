@@ -4,7 +4,6 @@ const path = require('path');
 const postsDir = path.join(__dirname, '../blog/posts');
 const outputFile = path.join(__dirname, '../data/blog.json');
 
-// Simple frontmatter parser for markdown files
 function parseFrontmatter(fileContent) {
     const match = fileContent.match(/^---\s*([\s\S]*?)\s*---([\s\S]*)$/);
     if (!match) return { metadata: {}, content: fileContent };
@@ -16,11 +15,9 @@ function parseFrontmatter(fileContent) {
         if (colonIndex !== -1) {
             const key = line.slice(0, colonIndex).trim();
             let value = line.slice(colonIndex + 1).trim();
-            // Remove quotes if present
             if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
                 value = value.slice(1, -1);
             }
-            // Parse booleans
             if (value === 'true') value = true;
             if (value === 'false') value = false;
             metadata[key] = value;
@@ -59,14 +56,16 @@ function buildBlogJson() {
             image: metadata.image || '',
             draft: metadata.draft === true,
             order: metadata.order || 99,
-            content: content // Raw markdown or HTML body content
+            content: content
         });
     });
 
-    // Sort by date or order
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     const output = { posts };
+    if (!fs.existsSync(path.dirname(outputFile))) {
+        fs.mkdirSync(path.dirname(outputFile), { recursive: true });
+    }
     fs.writeFileSync(outputFile, JSON.stringify(output, null, 2));
     console.log(`Successfully generated blog.json with ${posts.length} posts!`);
 }
