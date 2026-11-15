@@ -12,7 +12,7 @@ tags:
   - automation
 reading_time: "8 min"
 featured: true
-draft: True
+draft: False
 ---
 
 Telegram bots are incredibly powerful tools that can automate tasks, provide customer support, process payments, and much more. In this comprehensive guide, we'll walk through building a Telegram bot from scratch using Python — one of the most popular languages for bot development.
