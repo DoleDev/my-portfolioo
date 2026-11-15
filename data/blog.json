@@ -10,7 +10,8 @@
       "readTime": "5 min read",
       "image": "",
       "draft": false,
-      "order": 1
+      "order": 1,
+      "content": "<h2>Introduction</h2><p>Building a Telegram bot with Python is straightforward thanks to libraries like python-telegram-bot...</p>"
     }
   ]
 }
