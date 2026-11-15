@@ -51,6 +51,7 @@
             services:     'data/services.json',
             testimonials: 'data/testimonials.json',
             products:     'data/products.json'
+            blog:         'data/blog.json'
         },
 
         init() {
@@ -115,7 +116,10 @@
                         const featuredProducts = data.products.filter(p => p.featured);
                         html = this.renderProducts(featuredProducts, limit);
                         break;
-
+                    case 'blog':
+                        data = await this.fetchData('blog');
+                        html = this.renderBlog(data.posts, limit);
+                        break;
                     default:
                         console.warn('ContentLoader: Unknown content type:', contentType);
                         return;
@@ -368,6 +372,53 @@
                 </div>`;
             }).join('');
         },
+       /* ---- Blog Posts ---- */
+renderBlog(posts, limit) {
+    if (!posts || posts.length === 0) {
+        return '<p class="content-empty">No articles to display yet.</p>';
+    }
+
+    /* Filter out drafts and sort by order/date */
+    const published = posts.filter(p => !p.draft);
+    const sorted = [...published].sort((a, b) => (a.order || 99) - (b.order || 99));
+    const items = limit ? sorted.slice(0, limit) : sorted;
+
+    return items.map((post, index) => {
+        const techTags = (post.tags || [])
+            .map(tag => `<span class="blog-post-card__tag">${this.escapeHtml(tag)}</span>`)
+            .join('');
+
+        const imageHtml = post.image
+            ? `<img src="${this.escapeHtml(post.image)}" alt="${this.escapeHtml(post.title)}" loading="lazy">`
+            : `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`;
+
+        const isFeatured = index === 0 ? 'blog-post-card--featured' : '';
+
+        return `
+        <article class="card card--blog ${isFeatured}"
+            data-searchable="${this.escapeHtml(post.title.toLowerCase())} ${this.escapeHtml(post.description.toLowerCase())} ${this.escapeHtml(post.category || '')}"
+            data-category="${this.escapeHtml(post.category || 'development')}"
+            data-animation="fade-in-up"
+            data-delay="${index * 100}">
+            <div class="card__image-wrapper">
+                <div class="card__image-placeholder">${imageHtml}</div>
+                <span class="card__category-badge">${this.escapeHtml(post.category || 'Development')}</span>
+            </div>
+            <div class="card__body">
+                <div class="card__meta">
+                    <time datetime="${this.escapeHtml(post.date)}">${this.escapeHtml(post.date)}</time>
+                    <span class="card__meta-divider">·</span>
+                    <span>${this.escapeHtml(post.readTime || '5 min read')}</span>
+                </div>
+                <h2 class="card__title">
+                    <a href="blog-post.html?id=${this.escapeHtml(post.id)}">${this.escapeHtml(post.title)}</a>
+                </h2>
+                <p class="card__description">${this.escapeHtml(post.description)}</p>
+                <div class="blog-post-card__tags">${techTags}</div>
+            </div>
+        </article>`;
+    }).join('');
+},  
 
 
         /* ==========================================
